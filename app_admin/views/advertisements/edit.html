@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-md-8">
+        {{> alerts}}
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <i class="fa fa-edit"></i>
+                <h3 class="box-title">广告图信息</h3>
+            </div>
+            <form id="advertisementForm" role="form" action="/admin/advertisements/post" method="post" >
+                <input type="hidden" id="id" name="id" value="{{advertisement.id}}">
+                <input type="hidden" id="imageType" value="advertisement" >
+                <div class="box-body">
+                    <div class="form-group">
+                        <label for="ADLocation">广告图区域</label>
+                        <select class="form-control" id="ADLocation" name="ADLocation" placeholder="广告图区域"  >
+                            <option value="1" {{#equal advertisement.ADLocation 1}}selected="" {{/equal}}>首页</option>
+                            <option value="2" {{#equal advertisement.ADLocation 2}}selected="" {{/equal}}>物业</option>
+                            <option value="3" {{#equal advertisement.ADLocation 3}}selected="" {{/equal}}>到家服务</option>
+                            <option value="4" {{#equal advertisement.ADLocation 4}}selected="" {{/equal}}>社区团购</option>
+                            <option value="5" {{#equal advertisement.ADLocation 5}}selected="" {{/equal}}>家庭金融</option>
+                        </select>
+                    </div>
+                    <div class="form-group required">
+                        <label for="image" class="control-label">广告图片</label>
+                        <input id="image" name="file" type="file"  multiple class="file-loading" accept="image/*">
+                        {{#advertisement.images}}
+                        {{{urlConvert url}}}
+                        {{/advertisement.images}}
+                        <div style="clear: both"></div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">保存</button>
+                    <a href="/admin/advertisements/" class="btn btn-default pull-right">取消</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>
+{{#extend "scripts"}}
+<script src="/public/plugins/bootstrap-fileinput/js/fileinput.js"></script>
+<script src="/public/plugins/bootstrap-fileinput/js/fileinput_locale_zh.js"></script>
+<script src="/public/admin/js/advertisements/edit.js"></script>
+{{/extend}}

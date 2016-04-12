@@ -1,0 +1,61 @@
+.ui-top{
+    height: 40px;
+    background: #000;
+    width: 100%;
+    line-height: 40px;
+    color: #fff;
+    text-align: center;
+    font-family: "微软雅黑";
+    font-size: 18px;
+}
+.position{
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    color: #fff;
+}
+.positionR{
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    color: #fff;
+}
+.well{
+    padding: 10px !important;
+}
+ul,li{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.list ul li{
+    line-height: 30px;
+    padding: 0 5px!important;
+    margin: 0!important;
+    font-size: 12px;
+}
+.dropdown{
+    color: #333 !important;
+}
+.form-group{
+    margin: 0 !important;
+}
+.dropdown-menu>li>a{
+    padding: 3px 10px;
+}
+.dropdown-menu{
+    left: -70px;
+    min-width: 100px;
+}
+.stop{
+    color: #ccc;
+}
+#check{
+    position: absolute;right: 0; top:10px
+}
+.login{
+    margin-top: 20px;display: block;text-align: center
+}
+.fs12{
+    font-size: 12px;
+}

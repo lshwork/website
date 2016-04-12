@@ -1,0 +1,57 @@
+#!/usr/bin/env node
+
+var request = require('request');
+var config = require('../config');
+
+var token_url = 'https://api.weixin.qq.com/cgi-bin/user/info/batchget?access_token=-gK9fRDmxsXzP073-09CsBO0jH9DYQREANmnT3Wioa-vvtnmaqPUesawSst-Ee4NjnKTtUBdA9XV5H-Kg4_iuVKcyi0Qm3iBPQsAf6elL0EINHfAIAYDX';
+var token_qs = {
+    "user_list": [
+        {
+            "openid": "ogCPutyQIWc1pNLOzJgUzLEQWMQU",
+            "lang": "zh-CN"
+        },
+        {
+            "openid": "ogCPut6BKZ6Q-gtFyztcgFaVCqUg",
+            "lang": "zh-CN"
+        }, {
+            "openid": "ogCPutwJhSXcR9Px_GUTc3aOXtl8",
+            "lang": "zh-CN"
+        }, {
+            "openid": "ogCPut-ib1omK3QXsIdXPOIWeydM",
+            "lang": "zh-CN"
+        }, {
+            "openid": "ogCPut-iKnzC4897OhABHBwuX-bM",
+            "lang": "zh-CN"
+        }, {
+            "openid": "otvxTs4dckWG7imySrJd6jSi0CWE",
+            "lang": "zh-CN"
+        }, {
+            "openid": "ogCPut0fNCLa2FNrrQicz_AwUkmA",
+            "lang": "zh-CN"
+        }, {
+            "openid": "ogCPut-5BsMUBv1d02tzR5hoFd78",
+            "lang": "zh-CN"
+        }, {
+            "openid": "ogCPuty_2gT7LkPeRON3_a1yCX6Q",
+            "lang": "zh-CN"
+        }, {
+            "openid": "ogCPut3rMxyWuOS2H--hpQzUjaJY",
+            "lang": "zh-CN"
+        }
+    ]
+};
+request.post({url: token_url, form: {
+    "user_list": [
+        {
+            "openid": "otvxTs4dckWG7imySrJd6jSi0CWE",
+            "lang": "zh-CN"
+        },
+        {
+            "openid": "otvxTs_JZ6SEiP0imdhpi50fuSZg",
+            "lang": "zh-CN"
+        }
+    ]
+}}, function (err, res, body) {
+    console.log(body);
+});
+

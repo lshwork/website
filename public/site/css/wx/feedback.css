@@ -1,0 +1,71 @@
+.ui-top{
+    height: 100px;
+    background: #fff;
+    padding: 05px 0;
+}
+.ui-top img{
+    display: block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    float: left;
+    margin: 10px 20px;
+}
+.ui-top .des{
+    float: left;
+    display: inline;
+    margin-left: 20px;
+    color: #656464;
+}
+.ui-top .des a{
+    color: #656464;
+}
+.ui-top .des h2{
+    font-weight: normal;
+
+    font-size: 18px;
+    display: block;
+}
+.ui-top .des p{
+    font-size: 14px;
+    padding-top: 5px;  line-height: 80px;
+}
+label{
+    display: block;
+    text-indent: 10px;
+    padding-top: 10px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #565656;
+}
+textarea{
+    margin:5px auto;
+    width:96%;
+    display: block;
+    padding:5px;
+    font-size: 14px;
+    line-height: 20px;
+    height: 120px;
+    border-radius: 5px;border: 1px solid #d6d6d6;
+}
+.ui-text{
+    width: 96%;
+    margin: 0 auto;
+    display: block;
+    padding: 0 5px;
+    font-size: 14px;
+    line-height: 30px;
+    border-radius: 5px;
+    border: 1px solid #d6d6d6;
+}
+.link{
+    display: block;
+    width: 96%;
+    margin: 20px auto;
+    height: 40px;
+    background: #6fb02f;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 5px;
+}

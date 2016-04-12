@@ -1,0 +1,47 @@
+.ui-main{
+
+}
+.ui-main dl{
+  position: relative;
+  margin:30px auto 0 auto;
+  width: 98%;
+  padding-top:20px;
+  border-top: 1px solid #ccc;
+}
+.ui-main dl dt{
+  width: 96%;
+  text-align: center;
+  position: absolute;
+  line-height: 30px;
+  top:-15px;
+}
+.ui-main dl dt p{
+  display: block;
+  width: 80px;
+  margin: 0 auto;
+  background: #ededed;
+  line-height: 30px;
+}
+.ui-main dl dd{
+  background: #fff;
+  margin-bottom: 15px;
+  padding: 2%;
+}
+.ui-main dl dd img{
+  display: block;
+  width:100%;
+  margin: 0 auto;
+
+}
+.ui-main dl dd h4{
+  display: block;
+  font-size: 14px;
+  line-height: 25px;
+  font-weight: normal;
+}
+.ui-main dl dd p{
+  color: #b5b4b4;
+  font-size: 12px;
+  line-height: 20px;
+
+}

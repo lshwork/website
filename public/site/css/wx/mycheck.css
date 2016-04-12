@@ -1,0 +1,133 @@
+.ui-top{
+    height: 100px;
+    background: #fff;
+    padding: 05px 0;
+}
+.ui-top img{
+    display: block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    float: left;
+    margin: 10px 20px;
+}
+.ui-top .des{
+    float: left;
+    display: inline;
+    margin-left: 20px;
+    color: #656464;
+}
+.ui-top .des a{
+    color: #656464;
+}
+.ui-top .des h2{
+    font-weight: normal;
+
+    font-size: 18px;
+    display: block;
+}
+.ui-top .des p{
+    font-size: 14px;
+    padding-top: 5px;  line-height: 80px;
+}
+.ui-main dl{
+    margin: 10px;
+    background: #fff;
+}
+.ui-main dl dt{
+    line-height: 35px;
+    background: #f6f7dd;
+}
+.ui-main dl dt span{
+    display: block;
+    float: left;
+    color: #8f8d87;
+    font-size: 14px;
+    margin-left: 10px;
+}
+.ui-main dl dt p{
+    display: block;
+    float: left;
+    color: #d6710f;
+    font-size: 14px;
+    margin-left: 10px;
+}
+.ui-main dl dt a{
+    display: block;
+    float: right;
+    border: 1px solid #f89828;
+    color: #f89828;
+    width:70px;
+    text-align: center;
+    height: 25px;
+    margin-top: 4px;
+    margin-right: 10px;
+    line-height: 25px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+.ui-main dl dt button{
+    display: block;
+    float: right;
+    height: 25px;
+    margin-top: 5px;
+    margin-right: 10px;
+    line-height: 25px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #7a7a73;
+    width:70px;
+    color: #7a7a73;
+    background: #fff;
+}
+.ui-main dl dd{
+    display: -moz-box;
+    display: -webkit-box;
+    display: box;
+    line-height: 30px;
+    border-bottom: 1px solid #d5d5d5;
+    margin: 0 10px;
+}
+.ui-main dl dd .name{
+    width: 100px;
+    -moz-box-flex:1;
+    -webkit-box-flex:1;
+    box-flex:1;
+    font-size: 12px;
+    text-indent: 10px;
+    border-right: 1px solid #d5d5d5;
+    line-height: 25px;
+    margin: 5px 0;
+}
+.ui-main dl dd .content{
+    width: 200px;
+    -moz-box-flex:2;
+    -webkit-box-flex:2;
+    box-flex:2;
+    font-size: 12px;
+    text-indent: 10px;
+    line-height: 25px;
+    margin: 5px 0;
+}
+.ui-page{
+    width: 96%;
+    margin: 0 auto;
+    height: 35px;
+    line-height: 35px;
+
+}
+.ui-page ul li{
+    float: left;
+    width: 49%;
+    text-align: center;
+    font-size: 14px;
+    background: #fff;
+}
+.ui-page ul li a{
+    color: #565656;
+    display: block;
+}
+.ui-page ul li span{
+    color: #969696;
+    display: block;
+}

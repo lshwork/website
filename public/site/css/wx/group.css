@@ -1,0 +1,386 @@
+/*banenr*/
+.focus{ width:100%; height:auto;  margin:0 auto; position:relative; overflow:hidden;   }
+.focus .hd{ width:100%; height:11px;  position:absolute; z-index:1; bottom:10px; text-align:center;  }
+.focus .hd ul{ display:inline-block; height:5px; padding:3px 5px; background-color:rgba(255,255,255,0.7);
+    -webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px; font-size:0; vertical-align:top;
+}
+.focus .hd ul li{ display:inline-block; width:5px; height:5px; -webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px; background:#8C8C8C; margin:0 5px;  vertical-align:top; overflow:hidden;   }
+.focus .hd ul .on{ background:#FE6C9C; }
+
+.focus .bd{ position:relative; z-index:0; }
+.focus .bd li img{ width:100%; display: block    }
+.focus .bd li a{ -webkit-tap-highlight-color:rgba(0, 0, 0, 0); /* ȡ�����Ӹ��� */  }
+.ui-top{
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    background: #555555;
+}
+.breadnav{
+    font-size: 14px;
+    padding:  5px;
+    background: #fff;
+}
+.breadnav ul li{
+    float: left;
+    padding: 0 2px;
+    line-height: 30px;
+}
+.breadnav ul li a{
+    color: #656464;
+}
+.ui-search{
+    background: #fff;
+    padding: 10px 0;
+    position: relative;
+}
+.ui-search .ui-text{
+    display: block;
+    width: 96%;
+    margin: 0  auto;
+    border: 1px solid #ccc;
+    height: 35px;
+    border-radius: 5px;
+    padding: 0 5px 0 35px;
+    font-size: 14px;
+    color: #969696;
+}
+.ui-search .ui-sub{
+    width: 22px;
+    height: 20px;
+    background: url("../../image/btn_search@2x.png") no-repeat;
+    background-size: 22px 20px;
+    position: absolute;
+    left: 4%;
+    top: 18px;
+    border: none;
+}
+.ui-main{
+    padding-bottom: 45px;
+}
+.ui-main .nicefood{
+    background: #fff;
+
+}
+.ui-main .nicefood a{
+    color: #454545;
+}
+.ui-main .nicefood h4{
+    text-align: center;
+    font-weight: normal;
+    line-height: 35px;
+    color: #de403f;
+
+    background: #ebeaea;
+}
+.ui-main .nicefood ul{
+    width: 96%;
+    border-botoom: 1px solid #ccc;
+    margin: 0 auto;
+    padding: 5px 0;
+}
+.ui-main .nicefood ul li{
+    margin: 2%;
+    width: 45%;
+    border: 1px solid #ccc;
+    float: left;
+}
+.ui-main .nicefood ul li img{
+    display: block;
+    width: 100%;
+}
+.ui-main .nicefood ul li h5{
+    display: block;
+    width: 96%;
+    font-weight: normal;
+    font-size: 14px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 5px 0;
+    text-indent: 5px;
+}
+.ui-main .nicefood ul li i{
+    color:#de403f;
+    font-style: normal;
+    padding-bottom: 5px;
+    display: block;
+    text-indent: 5px;
+
+}
+.ui-buy{
+    background: #fff;
+    margin-top: 1px;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.ui-buy a{
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+    text-align: center;
+    line-height: 30px;
+    height: 30px;
+    background: #6fb02f;
+    color: #fff;
+    border-radius: 5px;
+
+}
+.scroll{
+    overflow-y:hidden;;
+}
+.pay{
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+
+    background: #fff;
+    width: 100%;
+    padding-top: 10px;
+    display: none;
+
+}
+.pay dl dt{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+.pay dl dt img{
+    display: block;
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin: 0 10px;
+}
+.pay dl dt .des{
+    float: left;
+    font-size: 12px;
+}
+.pay dl dt .des p{
+    color: #444444;
+    font-size: 14px;
+    line-height: 25px;
+    width: 220px;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.pay dl dt .des strong{
+    display: block;
+    color: #6fb02f;
+    font-size: 16px;
+    line-height: 25px;
+    border-bottom: none;
+}
+.pay dl dt span{
+    display: block;
+    float: right;
+    margin-right: 10px;
+    width: 30px;
+    height:30px ;
+    background: url("../../image/btn_close@2x.png") no-repeat;
+    background-size: 30px 30px;
+    margin-top: 10px;
+}
+.pay dl dd{
+    font-size: 14px;
+    clear: both;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+.pay dl dd label{
+    float: left;
+    display: block;
+    margin-left: 10px;
+    margin-top: 2px;
+
+}
+.pay dl dd i{
+    display: block;
+    font-style: normal;
+    float: right;
+    margin-right: 20px;margin-top: 2px;
+
+}
+.pay dl dd strong{
+    display: block !important;
+    font-weight: normal !important;
+    float: right !important;
+    margin-right: 10px !important;margin-top: 2px !important;
+    border-bottom: none !important;
+}
+
+.pay dl dd div{
+    float: right;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+    margin:  2px;
+    color: #565656;
+}
+.pay dl dd a.next{
+    width: 96%;
+    display: block;
+    margin: 0 auto;
+    background: #6fb02f;
+    color: #fff;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 5px;
+}
+@media screen and (max-width : 320px) {
+    .pay dl dt .des p{
+        width: 180px;
+    }
+}
+.sj{
+    width: 96%;
+    border: none;
+    display: block;
+    line-height: 35px;
+    margin: 0 auto;
+
+}
+
+.ui-bottom{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.ui-bottom dl{
+    display: -moz-box;
+    display: -webkit-box;
+    display: box;
+    background: #fff;
+    border-top: 1px solid #ccc;
+    line-height: 35px;
+    position: relative;
+}
+.ui-bottom dl dd{
+    -moz-box-flex:1;
+    -webkit-box-flex:1;
+    box-flex:1;
+    width: 100px;
+    font-size: 14px;
+    text-align: center;
+    margin: 5px 0;
+}
+.ui-bottom dl dt a{
+    display: block;
+    width: 100%;
+    height: 40px;
+}
+.ui-bottom dl dt{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background:url("../../image/btn_shop@2x.png") no-repeat;
+    background-size: 40px 40px;
+    right: 10px;
+    top: -20px;
+}
+.ui-bottom dl dd a{
+    color: #b5b4b4;
+}
+.ui-bottom dl dd.home.se a,.ui-bottom dl dd.type.se a,.ui-bottom dl dd.order.se a{
+    color:#656464 ;
+}
+.ui-bottom dl dd.home{
+    background: url("../../image/btn_home@2x.png") no-repeat;
+    background-size: 22px 20px;
+    background-position: 25px 7px;
+}
+.ui-bottom dl dd.type{
+    background: url("../../image/btn_type@2x.png") no-repeat;
+    background-size: 27px 20px;
+    background-position: 10px 7px;
+}
+.ui-bottom dl dd.order{
+    background: url("../../image/btn_order@2x.png") no-repeat;
+    background-size: 19px 20px;
+    background-position: 15px 8px;
+}
+.ui-bottom dl dd.home.se{
+    background: url("../../image/btn_homese@2x.png") no-repeat;
+    background-size: 22px 20px;
+    background-position: 25px 7px;
+}
+.ui-bottom dl dd.type.se{
+    background: url("../../image/btn_typese@2x.png") no-repeat;
+    background-size: 27px 20px;
+    background-position: 10px 7px;
+}
+.ui-bottom dl dd.order.se{
+    background: url("../../image/btn_orderse@2x.png") no-repeat;
+    background-size: 19px 20px;
+    background-position: 15px 8px;
+}
+
+@media screen and (max-width : 320px) {
+    .ui-bottom dl dd.home{
+        background: url("../../image/btn_home@2x.png") no-repeat;
+        background-size: 22px 20px;
+        background-position: 0px 7px;
+    }
+    .ui-bottom dl dd.type{
+        background: url("../../image/btn_type@2x.png") no-repeat;
+        background-size: 20px 15px;
+        background-position: 2px 10px;
+    }
+    .ui-bottom dl dd.order{
+        background: url("../../image/btn_order@2x.png") no-repeat;
+        background-size: 14px 15px;
+        background-position: 7px 11px;
+    }
+    .ui-bottom dl dd.home.se{
+        background: url("../../image/btn_homese@2x.png") no-repeat;
+        background-size: 16px 15px;
+        background-position: 17px 10px;
+    }
+    .ui-bottom dl dd.type.se{
+        background: url("../../image/btn_typese@2x.png") no-repeat;
+        background-size: 20px 15px;
+        background-position: 2px 10px;
+    }
+    .ui-bottom dl dd.order.se{
+        background: url("../../image/btn_orderse@2x.png") no-repeat;
+        background-size: 14px 15px;
+        background-position: 7px 11px;
+    }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 375px){
+    .ui-bottom dl dd.home{
+        background: url("../../image/btn_home@2x.png") no-repeat;
+        background-size: 22px 20px;
+        background-position: 22px 7px;
+    }
+    .ui-bottom dl dd.type{
+        background: url("../../image/btn_type@2x.png") no-repeat;
+        background-size: 27px 20px;
+        background-position: 5px 7px;
+    }
+    .ui-bottom dl dd.order{
+        background: url("../../image/btn_order@2x.png") no-repeat;
+        background-size: 19px 20px;
+        background-position: 12px 8px;
+    }
+    .ui-bottom dl dd.home.se{
+        background: url("../../image/btn_homese@2x.png") no-repeat;
+        background-size: 22px 20px;
+        background-position: 22px 7px;
+    }
+    .ui-bottom dl dd.type.se{
+        background: url("../../image/btn_typese@2x.png") no-repeat;
+        background-size: 27px 20px;
+        background-position: 5px 7px;
+    }
+    .ui-bottom dl dd.order.se{
+        background: url("../../image/btn_orderse@2x.png") no-repeat;
+        background-size: 19px 20px;
+        background-position: 12px 8px;
+    }
+}
+

@@ -1,0 +1,95 @@
+.ui-main{
+  padding:0 5px
+}
+.ui-main ul li{
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+.ui-main ul li a{
+  display: block;
+  position: relative;
+  width: 100%
+}
+.ui-main ul li a span{
+  display: block;
+  width: 35px;
+  height: 35px;
+  float: left;
+  background: url("../img/logo.png") no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 0
+}
+.ui-main ul li a .des{
+  float: left;
+  width: 100% 
+}
+.ui-main ul li a p{
+  display: block;
+  font-size:12px;
+  color: #000;
+  line-height: 15px;
+  white-space:nowrap; 
+  overflow:hidden; 
+  text-overflow:ellipsis;
+  width: 98%;
+  text-indent: 45px
+}
+.ui-main ul li a strong{
+  display: block;
+ 
+  font-size:12px;
+  color: #000;
+  line-height: 15px;
+  padding:5px 0 0 0;
+  font-weight: normal;
+  text-indent: 45px
+}
+.ui-main-show{
+  padding: 0 5px
+}
+.ui-main-show .title{
+  font-size: 16px;
+  text-align: center;
+  padding: 5px;
+}
+.ui-main-show .des{
+  text-align: center;
+
+  font-size: 12px;
+  padding-bottom: 5px;
+  line-height: 20px;
+  border-bottom:1px dotted #ccc;
+}
+.ui-main-show .content{
+  line-height: 25px;
+  font-size: 14px;
+  padding-top: 5px 
+}
+.ui-main-show .content p{
+  text-indent: 2em;
+}
+.ui-main-show .content span{
+  display: block;
+}
+.ui-main-show .content i{
+  display: block;
+  text-indent: 4em;
+  font-style: normal;
+}
+.ui-main-show .content h3{
+  color:#ff5500;
+}
+.ui-mainGx img{
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+.question li a{
+  font-size: 12px;
+  text-decoration: none;
+  color:#005983;
+
+}

@@ -1,0 +1,16 @@
+.nav a{
+    line-height: 35px;
+    text-align: center;
+    border-bottom: 1px dashed #ccc;
+    border-right: 1px dashed #ccc;;
+}
+.bbnone{
+    border-bottom: none !important;
+}
+.brnone{
+    border-right: none !important;
+}
+.well{
+    margin: 10px 0 !important;
+    padding: 10px !important;
+}

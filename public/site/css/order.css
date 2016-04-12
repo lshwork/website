@@ -1,0 +1,157 @@
+.ui-main{
+  background: #ededed;
+  padding-bottom: 10px
+}
+.ui-main .title{
+  width: 100%;
+ 
+  line-height: 40px;
+  background: #ededed
+}
+.ui-main .title ul{
+  display:-moz-box; /* Firefox */
+  display:-webkit-box; /* Safari and Chrome */
+  display:box;
+
+}
+.ui-main .title ul li{
+  -moz-box-flex:1.0; /* Firefox */
+  -webkit-box-flex:1.0; /* Safari 和 Chrome */
+  box-flex:1.0;
+  width: 100px;
+  text-align: center;
+  font-size: 14px;
+  background: #fff;
+  border-bottom: 1px solid #ededed; 
+
+}
+.ui-main .title ul li.cusor{
+  border-bottom: 1px solid red; 
+}
+.ui-main .shxx{
+  padding: 10px 5px;
+  font-size: 12px;
+  line-height: 20px
+}
+.gmxx ul{
+  margin-bottom: 20px;
+  width: 100%;
+  background: #fff;
+  padding-bottom: 10px
+}
+.gmxx ul li{
+  margin: 0 5px;
+  display:-moz-box; /* Firefox */
+  display:-webkit-box; /* Safari and Chrome */
+  display:box;
+  padding:10px 0 0 0;
+}
+.gmxx ul li img{
+  -moz-box-flex:1.0; /* Firefox */
+  -webkit-box-flex:1.0; /* Safari 和 Chrome */
+  box-flex:1.0;
+  border-radius: 5px;
+  margin-right: 10px;
+  width: 80px;
+  height: 60px
+}
+.gmxx ul li .des{
+  -moz-box-flex:5.0; /* Firefox */
+  -webkit-box-flex:5.0; /* Safari 和 Chrome */
+  box-flex:5.0;
+  width: 100px;
+  font-size: 12px;
+  display:-moz-box; /* Firefox */
+  display:-webkit-box; /* Safari and Chrome */
+  display:box;
+  line-height: 20px
+}
+.gmxx ul li .des .ms{
+  -moz-box-flex:2.0; /* Firefox */
+  -webkit-box-flex:2.0; /* Safari 和 Chrome */
+  box-flex:2.0;
+  width: 250px;
+  line-height: 20px;
+  height: 60px
+}
+.gmxx ul li .des .ms p{
+  color: #8d8c8b;
+}
+.gmxx ul li.bottom{
+  padding-top: 0;
+  font-size: 14px;
+  line-height: 25px;
+}
+.gmxx ul li.bottom .p{
+  color: #e77816;
+  -moz-box-flex:2.0; /* Firefox */
+  -webkit-box-flex:2.0; /* Safari 和 Chrome */
+  box-flex:2.0;
+  width: 100px
+}
+.gmxx ul li.bottom .p.r{
+  text-align: center;
+  color: #8d8c8b;
+  font-size: 12px
+}
+.gmxx ul li.bottom .p .sub{
+  display: block;
+  margin-right: 0;
+  float: right;
+  border: none;
+  background: red;
+  color: #fff;
+  width: 80px;
+  text-align: center;
+  height: 25px;
+  border-radius: 5px
+}
+
+.gmxx ul li .des .money{
+  -moz-box-flex:1.0; /* Firefox */
+  -webkit-box-flex:1.0; /* Safari 和 Chrome */
+  box-flex:1.0;
+  width: 100px;
+  text-align: right;
+  height: 60px
+}
+.gmxx ul li .des .money span{
+  display: block;
+}
+.gmxx ul li .des .money p{
+  color: #e66a00
+}
+.gmxx ul li .des .money strong{
+  display: block;
+  background: url("../img/btn_to@2x.png") no-repeat;
+  width: 10px;
+  height: 15px;
+  background-size: 10px 15px;
+  float: right;
+  margin-top: 3px
+}
+.totle{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background: #ededed;
+  line-height: 40px; font-size: 16px;
+  padding-left: 5px
+}
+.totle span{
+  color: #e66d03;
+  font-size: 18px
+}
+.totle .zf{
+  width: 120px;
+  height: 30px;
+  display: block;
+  margin-top: 5px;
+  margin-right: 10px;
+  color: #fff;
+  float: right;
+  border: none;
+  background: url("../img/btn_qd@2x.png") no-repeat;
+  background-size: 120px 30px
+}

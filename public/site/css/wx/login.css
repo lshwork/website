@@ -1,0 +1,46 @@
+.ui-tel,.ui-check{
+  display: block;
+  width: 90%;
+  margin:20px auto;
+  border: none;
+  border-radius: 3px;
+  height: 35px;
+  line-height: 35px;
+  font-size: 12px;
+  padding: 0 10px;
+  color:#656464
+}
+.ui-sub{
+  width: 90%;
+  height: 35px;
+  line-height: 35px;
+  background: #6fb02f;
+  margin: 0 auto;
+  display: block;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+}
+.ui-login{
+  margin-top:40%;
+}
+.ui-login ul li{
+  position: relative;
+
+}
+.ui-login ul li .button{
+  display: block;
+  color: #656464;
+  font-size: 12px;
+  height: 35px;
+  width: 80px;
+  text-align: center;
+  position: absolute;
+  right: 5%;
+  top:0;
+  line-height: 35px;border: none;
+  background: #fff;
+  border-left: 1px solid #ddd;
+
+
+}

@@ -1,0 +1,87 @@
+.breadnav{
+  font-size: 14px;
+  padding:5px;
+  background: #fff;
+}
+.breadnav ul li{
+  float: left;
+  padding: 0 2px;
+  line-height: 30px;
+}
+.breadnav ul li a{
+  color: #656464;
+}
+.breadnav ul li.yy{
+  float: right;
+  display: inline;
+
+}
+.breadnav ul li.yy .yycheck{
+  height: 20px;
+  width:50px;
+  border: 1px solid #81b948;
+  border-radius: 10px;
+  display: block;
+  margin-top: 4px;
+  text-align: center;
+  line-height: 20px;
+  color: #6fb02f;
+  font-size: 12px;
+}
+.ui-main{
+  margin: 10px;
+}
+.ui-main h1{
+  display: block;
+  font-size: 18px;
+  font-weight: normal;
+  text-align: center;
+  color: #6fb02f;
+  height: 10px;
+  line-height: 20px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom:20px;
+  margin-top: 20px;
+}
+.ui-main h1 p{
+  display: block;
+  width: 100px;
+  margin: 0 auto;
+  background: #ebeaea;
+}
+.ui-main ul li{
+  background: #fff;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+.ui-main ul li img{
+  display: block;
+  width: 100%;
+}
+.ui-main ul li h2{
+  display: block;
+  font-size: 16px;
+  font-weight: normal;
+  color: #656464;
+  padding: 0 5px;
+  line-height: 30px;
+
+}
+.ui-main ul li p{
+  color: #969696;
+  font-size: 12px;
+  padding: 0 5px;
+  line-height: 20px;
+
+}
+.check{
+  width: 96%;
+  height: 40px;
+  line-height: 40px;
+  margin:55px auto 15px auto;
+  color: #fff;
+  background: #6fb02f;
+  display: block;
+  text-align: center;
+  border-radius: 5px;
+}

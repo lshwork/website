@@ -1,0 +1,132 @@
+.ui-shoptop{
+    background: #fff;
+    height: 35px;
+}
+.ui-shoptop ul{
+    height: 35px;
+    border-bottom:1px solid #d6d6d6 ;
+}
+.ui-shoptop ul li{
+    float: left;
+    line-height: 35px;
+    font-size: 14px;
+    width: 80px;
+    text-align: center;
+}
+.ui-shoptop ul li a{
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid #fff;
+    color: #656464;
+    height: 34px;
+}
+.ui-shoptop ul li a.active{
+    color: #6fb02f;
+    border-bottom: 1px solid #6fb02f;
+}
+.order{
+    color: #656464;
+    font-size: 14px;
+    margin-bottom:80px;
+}
+.order dl{
+    margin-top: 10px;
+    display: block;
+    background: #fff;
+}
+.order dl dt{
+    border-bottom: 1px solid #ddd;
+    line-height: 35px;
+    padding: 0 10px;
+}
+.order dl dt span{
+    display: block;
+    float: left;
+}
+.order dl dt a{
+    display: block;
+    float: right;
+    font-size: 12px;
+    color: red;
+}
+.order dl dt label{
+    display: block;
+    float: right;
+    font-size: 12px;
+}
+.order dl dd a{
+    color: #565656;
+}
+.order dl dd{
+    padding:  10px;
+    border-bottom: 1px solid #ddd;
+    line-height: 25px;
+}
+.order dl dd img{
+    display: block;
+    float: left;
+    width: 60px;
+    height: 60px;
+}
+.order dl dd p{
+    display: block;
+    float: left;
+    width: 255px;
+    margin-left: 10px;
+    line-height: 20px;
+}
+.order dl dd span{
+    display: block;
+    float: right;
+    text-align: right;
+    line-height: 30px;
+}
+.order dl dd span b{
+    display: block;
+    font-weight: normal;
+}
+.order dl dd a.pj{
+    display: block;
+    float: right;
+    width: 60px;
+    color: #fff;
+    background: #6fb02f;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 3px;
+    margin-left: 10px;
+}
+@media screen and (max-width : 320px) {
+.order dl dd p{
+    display: block;
+    float: left;
+    width: 170px;
+    margin-left: 10px;
+    line-height: 20px;
+}}
+@media screen and (min-width : 321px) and (max-width :375px) {
+    .order dl dd p{
+        display: block;
+        float: left;
+        width: 210px;
+        margin-left: 10px;
+        line-height: 20px;
+    }
+}
+.ui-more{
+    width: 96%;
+    margin: 0 auto;
+    line-height: 40px;
+    text-align: center;
+    display: block;
+    border: 1px solid #6fb02f;
+    margin: 15px auto 0 auto;
+    background: #6fb02f;
+    color: #ffffff;
+    border-radius: 5px;
+}
+.noOrder{
+    line-height: 40px;
+    font-size: 12px;
+    text-align: center;
+}

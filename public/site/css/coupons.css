@@ -1,0 +1,52 @@
+.jumbotron {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.container {
+    padding-bottom: 15px;
+}
+.jumbotron .container {
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+.container h4 {
+    margin-top: 0;
+    margin-bottom: 4px;
+}
+.container p {
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+.toolbar {
+    display: block;
+    background: #fff;
+    width: 100%;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    padding: 30px 15px 15px 15px;
+    margin-bottom: 15px;
+}
+.toolbar .form-group {
+    margin-bottom: 0;
+}
+.form-group.required .control-label:after {
+    content: "*";
+    color: red;
+}
+.list-group-item {
+    padding-top: 15px;
+    margin-bottom: 5px;
+}
+.coupon-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+}
+.coupon-danger {
+    color: #a94442;
+    background-color: #f2dede;
+}
+.coupon-label {
+    display: block;
+    width: 76px;
+    float: left;
+}

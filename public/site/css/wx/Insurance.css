@@ -1,0 +1,157 @@
+.breadnav{
+  font-size: 14px;
+  padding:5px;
+  background: #fff;
+}
+.breadnav ul li{
+  float: left;
+  padding: 0 2px;
+  line-height: 30px;
+}
+.breadnav ul li a{
+  color: #656464;
+}
+.breadnav ul li.yy{
+  float: right;
+  display: inline;
+
+}
+.breadnav ul li.yy .yycheck{
+  height: 20px;
+  width:50px;
+  border: 1px solid #81b948;
+  border-radius: 10px;
+  display: block;
+  margin-top: 4px;
+  text-align: center;
+  line-height: 20px;
+  color: #6fb02f;
+  font-size: 12px;
+}
+.ui-bottom{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.ui-bottom ul{
+  display: -moz-box;
+  display: -webkit-box;
+  display: box;
+  padding: 15px 0;
+  background: #fff;
+}
+.ui-bottom ul li{
+  -moz-box-flex:1;
+  -webkit-box-flex:1;
+  box-flex:1;
+  font-size: 14px;
+  width: 100px;
+  text-align: center;
+  border-right: 1px solid #ccc;
+  line-height: 15px;
+}
+.ui-bottom ul li a{
+  display: block;
+  color: #444444;
+}
+.ui-main{
+  margin:10px;
+  background: #fff;
+  margin-bottom: 40px;
+}
+.ui-main ul li{
+  border-bottom: 1px solid #d5d5d5;
+}
+.ui-main ul li img{
+  display: block;
+  width: 60px;
+  height: 60px;
+  float: left;
+  margin: 5px;
+}
+.ui-main ul li .des{
+  float: left;
+  width: 200px;
+  font-size: 12px;
+  line-height: 20px;
+}
+.ui-main ul li .des h2{
+  font-weight: normal;
+  padding-top: 5px;
+  color: #656464;
+  font-size: 14px;
+}
+.ui-main ul li .des p{
+  color: #6fb02f;
+}
+.ui-main ul li .des span{
+  color: #969696;
+  display: block;
+}
+.ui-main ul li strong{
+  display: block;
+  background: url("../../image/btn_to@2x.png") no-repeat;
+  width: 10px;
+  height: 15px;
+  float: right;
+  margin-right: 5px;
+  margin-top: 25px;
+  background-size: 10px 15px;
+}
+.check{
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  margin:40px auto;
+  display: block;
+  color: #fff;
+  background: #656464;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-bottom: 80px;
+}
+
+
+
+.ui-title ul{
+  display: -moz-box;
+  display: -webkit-box;
+  display: box;
+  line-height: 30px;
+  margin-top: 5px;
+}
+.ui-title ul li{
+  -moz-box-flex:1;
+  -webkit-box-flex:1;
+  box-flex:1;
+  font-size: 14px;
+  width: 100px;
+  text-indent: 15px;
+  border-right: 1px solid #fff;
+  background: url("../../image/btn_xl@2x.png") no-repeat center right;
+  background-size: 12px 10px;
+  background-position: 90% 10px;
+  color: #656464;
+  position: relative;
+}
+.ui-title ul li .son{
+  position: absolute;
+  left: 0;
+  top: 40px;
+  background: #fff;
+  width:200%;
+  text-align: center;
+  line-height: 30px;
+  padding:0 0 10px 0;
+  display: none;
+}
+.ui-title ul li .son p{
+  width: 96%;
+  border-bottom: 1px solid #d5d5d5;
+  margin:0 auto;
+}
+.ui-title ul li a{
+  display: block;
+  color: #444444;
+}

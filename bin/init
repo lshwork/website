@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+var mongoose = require('mongoose');
+var config = require('../config');
+
+var User = require('../models/user');
+
+mongoose.connect(config.database);
+
+var admin = new User({
+    username: 'administrator',
+    phone: '13706233186',
+    email: 'admin@lesnho.com',
+    password: 'ruf20@3kw%',
+    role: 1
+});
+
+admin.save(function (err) {
+    if (err) return console.log('creating an admin failure: ' + err.message);
+    console.log('creating an admin success!');
+});
