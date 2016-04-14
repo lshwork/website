@@ -25,7 +25,6 @@
     "multer": "^1.1.0",
     "node-schedule": "^1.1.0",
     "node-uuid": "^1.4.3",
-    "node-xlsx": "^0.6.0",
     "redis": "^2.2.5",
     "request": "^2.65.0",
     "serve-favicon": "~2.3.0",
