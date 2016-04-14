@@ -39,7 +39,6 @@
                         <th>用户名</th>
                         <th>手机号码</th>
                         <th>电子邮箱</th>
-                        <th>用户角色</th>
                         <th>创建时间</th>
                         <th>修改时间</th>
                         <th>操作</th>
@@ -49,7 +48,6 @@
                         <td>{{username}}</td>
                         <td>{{phone}}</td>
                         <td>{{email}}</td>
-                        <td>{{#equal role 0}}普通用户{{/equal}}{{#equal role 1}}管理员{{/equal}}{{#equal role 2}}便民站阿姨{{/equal}}{{#equal role 3}}供应商{{/equal}}</td>
                         <td>{{{formatDate createdTime}}}</td>
                         <td>{{{formatDate updatedTime}}}</td>
                         <td>

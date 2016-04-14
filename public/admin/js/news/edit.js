@@ -7,113 +7,64 @@ $(function(){
         offText: '关闭',
         onColor: 'info'
     });
-    var domain=$("#domain").val();
-
-    $.ajax({
-        type: "GET",
-        url: '/admin/qiniu/uptoken?type=content',
-        success: function (obj) {
-            var json = eval(obj);
-            var uptoken=json.uptoken;
-            var kingEditorParams ={
-                filePostName  : "file",
-                uploadJson :'http://upload.qiniu.com/',  //http://upload.qiniu.com/ /admin/pic/uploadKindEditor/'+$("#imageType").val()
-                dir : "image",
-                extraFileUploadParams:{
-                    token: uptoken
-                }
-            };
-            var newsAddEditor=KindEditor.create("#newsForm [name=content]", kingEditorParams);
-           /* $(".onePicUpload").click(function(){
-                    var _self = $(this);
-                KindEditor.editor(kingEditorParams).loadPlugin('image', function() {
-                    this.plugin.imageDialog({
-                        showRemote : false,
-                        clickFn : function(url, title, width, height, border, align) {
-                            /!* var upload=$("#upload");
-                             var imgId="image"+count;
-                             var inputId="input"+count;
-                             $("#PreviewIcon").remove();
-                             upload.after("<li id='"+imgId+"' style='list-style:none'><a href='"+url+"' style='display:block;float:left;margin-left:10px' target='_blank'><img  src='"+url+"' width='80' height='50'/></a>"+"<a  href='javascript:void(0);' onClick=deleteImage("+count+",'"+url+"') style='display: block;float: left;' >"+"<img alt='删除' src='/public/admin/img/delete.jpg' style='width:15px;height:15px;' ></a></li>");
-                             $("#image").val(url);*!/
-                           // this.hideDialog();
-                        }
-                    });
-                });
-            });*/
-
-        },
-        error:function(){
+    var kingEditorParams ={
+        filePostName  : "file",
+        uploadJson :'/admin/pic/upload',  //http://upload.qiniu.com/ /admin/pic/uploadKindEditor/'+$("#imageType").val()
+        dir : "image",
+        extraFileUploadParams:{
+            kingEditor: "kingEditor"
         }
-    });
-    $.ajax({
-        type: "GET",
-        url: '/admin/qiniu/uptoken',
-        success: function (obj) {
-            var json = eval(obj);
-            var uptoken=json.uptoken;
-            var src=$("#imageUrl").val();
-            if(src){
-                var path=src.substr(domain.length,src.length);
-                $("#image").fileinput({
-                    language: 'zh', //设置语言
-                    allowedFileExtensions: ['JPEG', 'jpeg', 'JPG','jpg','GIF','gif','BMP','bmp','png','PNG'],//接收的文件后缀//.JPEG|.jpeg|.JPG|.jpg|.GIF|.gif|.BMP|.bmp|.PNG|.png
-                    maxFileCount: 1, //表示允许同时上传的最大文件个数
-
-                    initialPreview: [
-                        "<img style='height:160px' src='"+src+"'>",
-                    ],
-                    initialPreviewConfig: [
-                        {caption: "", width: "120px", url: "/admin/qiniu/delete", key: path},
-                    ],
-                    autoReplace:true,
-                    showClose: false,
-                    showRemove: false,
-                    showCaption: false,
-                    uploadUrl: 'http://upload.qiniu.com/',
-                    uploadExtraData: {
-                        token: uptoken
-                    }
-                }).on("fileuploaded",function(event, data, previewId, index) {
-                    $("#imageUrl").val(domain+data.response.key);
-                }).on("filepredelete", function(event,key) {
-                    var abort = true;
-                    if (confirm("你确定要删除这张图片?")) {
-                        abort = false;
-                        $("#imageUrl").val('');
-                    }
-                    return abort;
-
-                });
-            }else{
-                $("#image").fileinput({
-                    uploadUrl:  'http://upload.qiniu.com/',
-                    language: 'zh', //设置语言
-                    allowedFileExtensions:['JPEG', 'jpeg', 'JPG','jpg','GIF','gif','BMP','bmp','png','PNG'],//接收的文件后缀
-                    maxFileCount: 5,//表示允许同时上传的最大文件个数
-                    showClose: false,
-                    showRemove: false,
-                    showCaption: false,
-                    autoReplace: true,
-                    maxFileSize: 1024,
-                    uploadExtraData: {
-                        token: uptoken
-                    }
-                }).on("fileuploaded",function(event, data, previewId, index) {
-                    $("#imageUrl").val(domain+data.response.key);
-                }).on('filepredelete', function(event,key) {
-                    var abort = true;
-                    if (confirm("你确定要删除这张图片?")) {
-                        abort = false;
-                        $("#imageUrl").val('');
-                    }
-                    return abort;
-                });
+    };
+    var newsAddEditor=KindEditor.create("#newsForm [name=content]", kingEditorParams);
+    var src=$("#imageUrl").val();
+    if(src){
+        $("#image").fileinput({
+            language: 'zh', //设置语言
+            allowedFileExtensions: ['JPEG', 'jpeg', 'JPG','jpg','GIF','gif','BMP','bmp','png','PNG'],//接收的文件后缀//.JPEG|.jpeg|.JPG|.jpg|.GIF|.gif|.BMP|.bmp|.PNG|.png
+            maxFileCount: 1, //表示允许同时上传的最大文件个数
+            initialPreview: [
+                "<img style='height:160px' src='"+src+"'>",
+            ],
+            initialPreviewConfig: [
+                {caption: "", width: "120px", url: "/admin/image/delete", key: src},
+            ],
+            autoReplace:true,
+            showClose: false,
+            showRemove: false,
+            showCaption: false,
+            uploadUrl: '/admin/pic/upload'
+        }).on("fileuploaded",function(event, data, previewId, index) {
+            $("#imageUrl").val(data.response.key);
+        }).on("filepredelete", function(event,key) {
+            var abort = true;
+            if (confirm("你确定要删除这张图片?")) {
+                abort = false;
+                $("#imageUrl").val('');
             }
-        },
-        error: function () {
-        }
-    });
+            return abort;
+        });
+    }else{
+        $("#image").fileinput({
+            uploadUrl:  '/admin/pic/upload',
+            language: 'zh', //设置语言
+            allowedFileExtensions:['JPEG', 'jpeg', 'JPG','jpg','GIF','gif','BMP','bmp','png','PNG'],//接收的文件后缀
+            maxFileCount: 5,//表示允许同时上传的最大文件个数
+            showClose: false,
+            showRemove: false,
+            showCaption: false,
+            autoReplace: true,
+            maxFileSize: 1024,
+        }).on("fileuploaded",function(event, data, previewId, index) {
+            $("#imageUrl").val(data.response.key);
+        }).on('filepredelete', function(event,key) {
+            var abort = true;
+            if (confirm("你确定要删除这张图片?")) {
+                abort = false;
+                $("#imageUrl").val('');
+            }
+            return abort;
+        });
+    }
 });
 
 function fileChange(target) {

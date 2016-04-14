@@ -1,7 +1,7 @@
 /**
  * Created by lsh on 2015/12/11 0011.
  */
-var Advertisement = require('../../models/advertisement');
+var Advertisement = require('../../models/advertisement').Advertisement;
 var async = require('async');
 var extend = require('extend');
 var config = require('../../config');
@@ -46,8 +46,6 @@ exports.edit = function (req, res, next) {
         res.render('advertisements/edit', {
             title: '修改广告图',
             advertisement:advertisement,
-            domain: config.qiniu.Domain,
-            uptoken_url: config.qiniu.Uptoken_Url
         });
     });
 
@@ -82,9 +80,7 @@ exports.beforePost = function (req, res, next) {
         return res.render('advertisements/edit', {
             title: id ? '修改广告图' : '新增广告图',
             errors: errors,
-            advertisement: advertisement,
-            domain: config.qiniu.Domain,
-            uptoken_url: config.qiniu.Uptoken_Url
+            advertisement: advertisement
         });
     } else {
         req.advertisement = advertisement;

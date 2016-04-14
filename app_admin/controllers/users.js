@@ -8,6 +8,7 @@ var config = require('../../config');
 var fs=require('fs');
 
 exports.index = function (req, res, next) {
+    console.log(config.upload)
     var role = req.query.role ? parseInt(req.query.role) : null;
     var limit = 20;
     var start = parseInt(req.query.start || 0);
@@ -73,10 +74,8 @@ exports.beforePost = function (req, res, next) {
     req.checkBody('phone', '手机号码是必填项').notEmpty();
     var phoneReg = /^0?1[3|4|5|7|8][0-9]\d{8}$/;
     req.checkBody('phone', '手机号码格式不正确').matches(phoneReg);
-    if (role==1 || email) {
         req.checkBody('email', '管理员必须填写邮箱').notEmpty();
         req.checkBody('email', '邮箱无效').isEmail();
-    }
     if (password) {
         req.checkBody('password', '密码至少要6位以上').len(6);
         req.checkBody('confirmPassword', '两次密码必须相同').equals(password);

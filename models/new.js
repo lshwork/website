@@ -7,7 +7,7 @@ var Schema = mongoose.Schema;
  * 新闻
  * @type {Model|Aggregate|*}
  */
-module.exports = mongoose.model('New', new Schema({
+exports.New = mongoose.model('New', new Schema({
     title:{type:String,require:true,index:true},
     image: {type: String,require:false},
     desc: {type: String, required: true},

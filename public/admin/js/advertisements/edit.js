@@ -97,7 +97,7 @@ $(function(){
         var url=$(this).val();
         /*var path=url.substr(domain.length,url.length);*/
         initialPreview.push("<img style='height:160px' src='"+$(this).val()+"'>");
-        initialPreviewConfig.push({caption: "", width: "120px", url: "/admin/qiniu/delete", key: "123"});
+        initialPreviewConfig.push({caption: "", width: "120px", url: "/admin/image/delete", key: $(this).val()});
     });
     if(images.length>0){
         $("#image").fileinput({
@@ -114,16 +114,15 @@ $(function(){
             }
         }).on("fileuploaded",function(event, data, previewId, index) {
             alert(data.response);
-            $("#image").after("<input type='hidden' name='images' value='"+domain+data.response.key+"' >");
+            $("#image").after("<input type='hidden' name='images' value='"+data.response.url+"' >");
         }).on("filepredelete", function(event,key) {
             var abort = true;
-            if (confirm("你确定要删除这张图片?")) {
+            if (confirm("图片删除以后无法恢复,确定删除吗?")) {
                 abort = false;
                 $("input[value*='"+key+"']").remove();
                 $("input[value*='undefined']").remove();
             }
             return abort;
-
         });
     }else{
         $("#image").fileinput({
@@ -137,9 +136,9 @@ $(function(){
             uploadExtraData: {
             }
         }).on("fileuploaded",function(event, data, previewId, index) {
-            alert(data.response.url);
             $("#image").after("<input type='hidden' name='images' value='"+data.response.url+"' >");
         }).on('filepredelete', function(event, key) {
+            alert(key)
             $("input[value*='"+key+"']").remove();
             $("input[value*='undefined']").remove();
         });

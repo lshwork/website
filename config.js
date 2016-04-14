@@ -2,7 +2,9 @@
 
 console.log('reload');
 
+var basePath=__dirname;
 module.exports = {
     database: 'mongodb://localhost/website',
-    filePath:'/mnt/upload'
+    basePath:basePath,
+    upload:basePath+"\\public\\upload"
 };

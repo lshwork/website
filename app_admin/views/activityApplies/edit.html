@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-md-8">
+        {{> alerts}}
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <i class="fa fa-edit"></i>
+                <h3 class="box-title">活动信息</h3>
+            </div>
+            <form id="userForm" role="form" action="/admin/activityApplies/post" method="post">
+                <input type="hidden" id="id" name="id" value="{{activityApply.id}}">
+                <input type="hidden" id="userId" name="userId" value="{{activityApply.userId}}">
+                <input type="hidden" id="activityId" name="activityId" value="{{activityApply.activityId}}">
+                <div class="box-body">
+                    <div class="form-group required">
+                        <label for="realName" class="control-label">姓名</label>
+                        <input type="text" class="form-control" id="realName" name="realName" placeholder="姓名" value="{{activityApply.realName}}">
+                    </div>
+                    <div class="form-group required">
+                        <label for="phone" class="control-label">联系电话</label>
+                        <input type="text" class="form-control" id="phone" name="phone" placeholder="联系电话"  value="{{activityApply.phone}}">
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">保存</button>
+                    <a href="/admin/activityApplies/" class="btn btn-default pull-right">取消</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>
+{{#extend "scripts"}}
+<script src="/public/admin/js/activityApplies/edit.js"></script>
+{{/extend}}

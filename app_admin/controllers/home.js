@@ -5,35 +5,24 @@
 var async = require('async');
 var uuid = require('node-uuid');
 var utils = require('../../utils');
-var User = require('../../models/user');
-var Appointment = require('../../models/appointment');
-var goods = require('../../models/goods');
+var User = require('../../models/user').User;
 var config = require('../../config');
 var fs = require('fs');
 var qiniu = require('qiniu');
-
+/*__dirname//当前路径
+__filename//当前在执行的js文件路径*/
 exports.index = function (req, res, next) {
+    console.log(__dirname)
+    console.log(__filename)
     async.parallel({
         userCount: function (callback) {
             User.count({deleted: false}, callback);
-        },
-        breakfastCount: function(callback) {
-            goods.GoodsOrder.count({type: 1, deleted: false}, callback);
-        },
-        shoppingCount: function(callback) {
-            goods.GoodsOrder.count({type: 2, deleted: false}, callback);
-        },
-        appointmentCount: function (callback) {
-            Appointment.count({deleted: false}, callback);
         }
     }, function (err, data) {
         if (err) return next(err);
         res.render('index', {
             title: '主页',
-            userCount: data.userCount,
-            breakfastCount: data.breakfastCount,
-            shoppingCount: data.shoppingCount,
-            appointmentCount: data.appointmentCount
+            userCount: data.userCount
         });
     });
 };
@@ -131,7 +120,7 @@ exports.postLogin = function (req, res, next) {
     }, function (err, user) {
         if (err) return next(err);
 
-        if ((!user) || (user.role!=1)) {
+        if ((!user)) {
             var errors = [{msg: '登录信息不正确或没有管理权限'}];
             return res.render('login', {
                 layout: false,
@@ -155,7 +144,7 @@ exports.postLogin = function (req, res, next) {
             // create a token
             var token = (new Buffer(uuid.v4())).toString('base64');
             var seconds = rememberMe ? 60 * 60 * 24 * 30 : 60 * 60 * 24;
-            utils.redisClient.setex('token:' + token, seconds, user._id);
+            utils.redisClient.setex('token:' + token, seconds, user.id);
             res.cookie('token', token, {
                 maxAge: seconds * 1000,
                 httpOnly: true,
@@ -195,9 +184,34 @@ exports.carSystem=function(req,res,next){
 
 exports.upload=function(req,res,next){
     console.log(req.file);
+    var url = "/public/upload/"+req.file.filename;
+    var json={
+        initialPreview: [
+            "<img style='height:160px' src='" + url + "' class='file-preview-image'>"
+        ],
+        initialPreviewConfig: [
+            {caption: req.file.originalname, width: '120px', url: '/admin/image/delete', key: url}
+        ],
+        append: true,
+        url: url,
+        key:url
+    };
+    if(req.body.kingEditor=="kingEditor") json.error=0;
+    return res.json(json);
+};
+
+exports.imageDelete=function(req,res,next){
+    var key=req.body.key;
+    key=key?key.replace(/\//g,'\\'):"";
+    var filePath=config.basePath+key;
+    console.log(filePath);
+    fs.exists(filePath, function( exists ){
+        if(exists){
+            fs.unlink(filePath,function(){
+            });
+        }
+    });
     return res.json({
-        url:config.filePath+req.file.filename,
-        width:640,
-        height:640
+       success:true
     });
 };
