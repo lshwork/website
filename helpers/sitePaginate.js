@@ -1,6 +1,3 @@
-/**
- * Created by fangjunfeng on 15-11-26.
- */
 
 var extend = require('extend');
 var querystring = require('querystring');
@@ -26,7 +23,7 @@ Paginate.prototype.prevPage = function() {
         var url = '?' + querystring.stringify(this.query);
         return ['<li><a href="', url, '">上一页</a></li>'].join('');
     }
-    return '<li class=""><span>上一页</span></li>';
+    return '<li class="disabled"><span>上一页</span></li>';
 };
 
 Paginate.prototype.nextPage = function() {
@@ -35,10 +32,10 @@ Paginate.prototype.nextPage = function() {
         var url = '?' + querystring.stringify(this.query);
         return ['<li><a href="', url, '">下一页</a></li>'].join('');
     }
-    return '<li class=""><span>下一页</span></li>';
+    return '<li class="disabled"><span>下一页</span></li>';
 };
 
-/*Paginate.prototype.iterPages = function(callback) {
+Paginate.prototype.iterPages = function(callback) {
     var winFrom = 1;
     if (this.page > this.innerWindow) {
         if (this.page+ this.innerWindow > this.totalPages) {
@@ -63,19 +60,22 @@ Paginate.prototype.nextPage = function() {
             callback(['<li><a href="', url, '">', page, '</a></li>'].join(''));
         }
     }
-};*/
+};
 
 Paginate.prototype.renderString = function() {
     if (this.totalPages <= 1) {
         return '';
     }
-   var info = [
+    var info = [
+        '<span style="display: block; float: left; padding: 5px 10px;">',
+        "共"+this.totalPages+"页", '/',this.total+"条",
+        '</span>'
     ].join('');
     var links = [info, '<ul class="pagination pagination-sm no-margin">'];
     links.push(this.prevPage());
-   /* this.iterPages(function(link) {
+    this.iterPages(function(link) {
         links.push(link);
-    });*/
+    });
     links.push(this.nextPage());
     links.push('</ul>');
     return links.join('\n');

@@ -1,5 +1,5 @@
 /**
- * Created by fangjunfeng on 15-10-29.
+ * Created by wjc on 2016/4/15.
  */
 
 var async = require('async');
@@ -8,12 +8,9 @@ var utils = require('../../utils');
 var User = require('../../models/user').User;
 var config = require('../../config');
 var fs = require('fs');
-var qiniu = require('qiniu');
 /*__dirname//当前路径
 __filename//当前在执行的js文件路径*/
 exports.index = function (req, res, next) {
-    console.log(__dirname)
-    console.log(__filename)
     async.parallel({
         userCount: function (callback) {
             User.count({deleted: false}, callback);

@@ -1,5 +1,5 @@
 /**
- * Created by fangjunfeng on 15-11-18.
+ * Created by wjc on 2016/4/15.
  */
 $(function() {
     $("#areaId").change(function () {

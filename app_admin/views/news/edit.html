@@ -13,21 +13,21 @@
                 <input type="hidden" id="id" name="id" value="{{singleNew.id}}">
                 <input type="hidden" id="imageType" value="singleNew" >
                 <div class="box-body">
-
                     <div class="form-group required">
                         <label for="title" class="control-label">新闻标题</label>
                         <input type="text" class="form-control" id="title" name="title" placeholder="新闻标题" value="{{singleNew.title}}">
+                    </div>
+                    <div class="form-group required">
+                        <label for="type" class="control-label">新闻类型</label>
+                        <select class="form-control" id="type" name="type" placeholder="新闻类型"  >
+                            <option value="dtdt" {{#equal singleNew.type 'dtdt'}}selected="" {{/equal}} >德天动态</option>
+                            <option value="tyxw"  {{#equal singleNew.type 'tyxw'}}selected="" {{/equal}} >体育新闻</option>
+                        </select>
                     </div>
                     <div class="form-group ">
                         <label for="image" class="control-label">新闻缩略图</label>
                         <input id="image" name="file" type="file"  class="file-loading" accept="image/*">
                         <input id="imageUrl" name="imageUrl" type="hidden" value="{{singleNew.image}}" >
-
-                       <!-- <a href="javascript:void(0)" class=" picFileUpload" style="display: block;border: 1px solid #ccc;font-size: 12px; line-height: 20px; margin-left: 15px; background: #eaf2ff; color: #000000; float: left;width: 60px;text-align: center; border-radius: 5px">上传图片</a>-->
-                    <!--    <input type="hidden" class="form-control" id="image" name="image" placeholder="新闻缩略图" value="{{singleNew.image}}">-->
-                    <!--    {{#if singleNew.image}}
-                        <img class="img-circle" src="{{singleNew.image}}" id="PreviewIcon" alt="Preview Icon"  width='80' height='80'>
-                        {{/if}}-->
                         <div style="clear: both"></div>
                     </div>
                     <div class="form-group ">

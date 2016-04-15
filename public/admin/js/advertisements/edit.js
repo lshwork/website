@@ -1,5 +1,5 @@
 /**
- * Created by lsh on 2015/12/11 0011.
+ * Created by wjc on 2016/4/15.
  */
 var LSH={
     kingEditorParams : {

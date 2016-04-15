@@ -1,5 +1,5 @@
 /**
- * Created by lsh on 2015/11/27 0027.
+ * Created by wjc on 2016/4/15.
  */
 var ActivityApply = require('../../models/activityApply').ActivityApply;
 var extend = require('extend');

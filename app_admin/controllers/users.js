@@ -1,5 +1,5 @@
 /**
- * Created by fangjunfeng on 15-11-18.
+ * Created by wjc on 2016/4/15.
  */
 var async = require('async');
 var extend = require('extend');
@@ -8,12 +8,9 @@ var config = require('../../config');
 var fs=require('fs');
 
 exports.index = function (req, res, next) {
-    console.log(config.upload)
-    var role = req.query.role ? parseInt(req.query.role) : null;
     var limit = 20;
     var start = parseInt(req.query.start || 0);
     var q = {deleted: false};
-    if (role != null) q.role = parseInt(role);
     if (req.query.phone) q.phone = req.query.phone;
     if(req.query.username) q.username = new RegExp(req.query.username, "i");
     async.parallel({

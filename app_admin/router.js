@@ -1,5 +1,5 @@
 /**
- * Created by fangjunfeng on 15-10-29.
+ * Created by wjc on 2016/4/15.
  */
 var express = require('express');
 var multer = require('multer');
@@ -29,6 +29,7 @@ var users = require('./controllers/users');
 var news = require('./controllers/news');
 var advertisements = require('./controllers/advertisements');
 var activityApplies=require('./controllers/activityApplies');
+var contents=require('./controllers/contents');
 var cpUpload = upload.fields([{ name: 'file', maxCount: 5 }, { name: 'attachment', maxCount: 8 }]);
 router.get('/login', home.login);
 router.post('/postLogin', home.postLogin);
@@ -69,4 +70,10 @@ router.get('/activityApplies/add', activityApplies.add);
 router.post('/activityApplies/post', activityApplies.beforePost, activityApplies.post);
 router.get('/activityApplies/edit', activityApplies.edit);
 router.post('/activityApplies/delete',activityApplies.updateDeleteStu);
+
+router.get('/contents',contents.index);
+router.get('/contents/add', contents.add);
+router.post('/contents/post', contents.beforePost, contents.post);
+router.get('/contents/edit', contents.edit);
+router.post('/contents/delete',contents.updateDeleteStu);
 module.exports = router;

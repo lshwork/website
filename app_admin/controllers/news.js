@@ -1,5 +1,5 @@
 /**
- * Created by lsh on 2015/12/10 0010.
+ * Created by wjc on 2016/4/15.
  */
 var New = require('../../models/new').New;
 var async = require('async');
@@ -9,7 +9,7 @@ var fs = require('fs');
 
 exports.index = function (req, res, next) {
     var start = parseInt(req.query.start || 0);
-    var limit = 20;
+    var limit = 2;
     var q = {deleted: false};
     async.parallel({
         news: function (callback) {
@@ -37,7 +37,7 @@ exports.index = function (req, res, next) {
 exports.add = function (req, res, next) {
     res.render('news/edit', {
         title: '添加新闻',
-        singleNew: {enabled: true},
+        singleNew: {enabled: true}
     });
 };
 exports.edit = function (req, res, next) {
@@ -46,7 +46,7 @@ exports.edit = function (req, res, next) {
         if (err) return next(err);
         res.render('news/edit', {
             title: '修改新闻',
-            singleNew: singleNew,
+            singleNew: singleNew
         });
     });
 };
@@ -59,6 +59,7 @@ exports.beforePost = function (req, res, next) {
         image: image,
         desc: req.body.desc,
         content: req.body.content,
+        type:req.body.type,
         enabled: req.body.enabled ? true : false
     };
     if(req.body.priority){

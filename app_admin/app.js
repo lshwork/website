@@ -1,5 +1,5 @@
 /**
- * Created by fangjunfeng on 15-10-29.
+ * Created by wjc on 2016/4/15.
  */
 var express = require('express');
 var expressValidator = require('express-validator');
@@ -62,6 +62,9 @@ var obj = setInterval(function(){
 */
 
 hbs.registerHelper('equal', function (lvalue, rvalue, options) {
+    console.log(lvalue)
+    console.log(rvalue)
+    console.log(123)
     if (arguments.length < 3) {
         throw new Error('Handlebars Helper equal needs 2 parameters');
     }
@@ -118,12 +121,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(expressValidator());
 app.use(cookieParser());
-/*app.use(multer({
-    dest: '../public/upload',
-    rename: function (fieldname, filename) {
-        return filename;
-    }
-}));*/
 app.use('/', router);
 
 // catch 404 and forward to error handler

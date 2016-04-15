@@ -1,5 +1,5 @@
 /**
- * Created by fangjunfeng on 15-10-27.
+ * Created by wjc on 2016/4/15.
  */
 var express = require('express');
 var path = require('path');
@@ -11,7 +11,7 @@ var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
 var router = require('./router');
 var config = require('../config');
-var wxpaginate = require('../helpers/wxPaginate');
+var sitePaginate = require('../helpers/sitePaginate');
 var app = express();
 
 
@@ -31,12 +31,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator());
 app.use(cookieParser());
 
-
-
 app.use('/', router);
 
-
-hbs.registerHelper('wxpaginate', wxpaginate);
+hbs.registerHelper('sitePaginate', sitePaginate);
 hbs.registerHelper('equal', function (lvalue, rvalue, options) {
     if (arguments.length < 3) {
         throw new Error('Handlebars Helper equal needs 2 parameters');
@@ -125,6 +122,7 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
     app.use(function(err, req, res, next) {
         res.status(err.status || 500);
+        console.log(err)
         res.render('error', {
             message: err.message,
             error: err
