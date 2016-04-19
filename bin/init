@@ -8,7 +8,7 @@ var User = require('../models/user').User;
 var Content = require('../models/content').Content;
 mongoose.connect(config.database);
 
-/*var admin = new User({
+var admin = new User({
     username: 'administrator',
     phone: '13706233186',
     email: 'admin@lesnho.com',
@@ -18,7 +18,7 @@ mongoose.connect(config.database);
 admin.save(function (err) {
     if (err) return console.log('creating an admin failure: ' + err.message);
     console.log('creating an admin success!');
-});*/
+});
 
 var contents=config.menus;
 
