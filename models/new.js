@@ -8,10 +8,10 @@ var Schema = mongoose.Schema;
  * @type {Model|Aggregate|*}
  */
 exports.New = mongoose.model('New', new Schema({
-    title:{type:String,require:true,index:true},
+    title:{type:String,index:{ unique: true, sparse : true } },
     image: {type: String,require:false},
-    desc: {type: String, required: true},
-    type:{type:String},  //德天动态  体育新闻
+    desc: {type: String},
+    type:{type:String},  //1:德天动态  2:体育新闻 3:招纳贤士
     priority:{type:Number,default:0},//优先级
     content: {type: String},
     enabled:{type:Boolean,default:true},

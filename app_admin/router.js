@@ -27,6 +27,7 @@ var utils = require('../utils');
 var home = require('./controllers/home');
 var users = require('./controllers/users');
 var news = require('./controllers/news');
+var jobs = require('./controllers/jobs');
 var advertisements = require('./controllers/advertisements');
 var activityApplies=require('./controllers/activityApplies');
 var contents=require('./controllers/contents');
@@ -64,6 +65,12 @@ router.get('/news/add', news.add);
 router.get('/news/edit', news.edit);
 router.post('/news/post', news.beforePost, news.post);
 router.post('/news/delete', news.updateDeleteStu);
+
+router.get('/jobs', jobs.index);
+router.get('/jobs/add', jobs.add);
+router.get('/jobs/edit', jobs.edit);
+router.post('/jobs/post', jobs.beforePost, jobs.post);
+router.post('/jobs/delete', jobs.updateDeleteStu);
 
 router.get('/activityApplies',activityApplies.index);
 router.get('/activityApplies/add', activityApplies.add);

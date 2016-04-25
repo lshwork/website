@@ -25,7 +25,6 @@ exports.index = function (req, res, next) {
         res.render('users/index', {
             title: '用户管理',
             users: data.users,
-            role: role,
             pagination: {
                 start: start,
                 limit: limit,
