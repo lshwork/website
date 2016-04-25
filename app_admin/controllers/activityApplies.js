@@ -7,8 +7,11 @@ var async = require('async');
 
 exports.index=function(req,res,next){
     var start = parseInt(req.query.start || 0);
-    var limit = 20;
+    var limit = 1;
     var q = {deleted:false};
+    if(req.query.activityName) q.activityName =req.query.activityName;
+    if(req.query.phone) q.phone =req.query.phone;
+    if(req.query.realName) q.realName = new RegExp(req.query.realName, "i");
     async.parallel({
         activityApplies: function(callback) {
             ActivityApply.find(q).skip(start).limit(limit).sort({createdTime: -1}).exec(callback);

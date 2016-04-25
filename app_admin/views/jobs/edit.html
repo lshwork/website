@@ -7,28 +7,15 @@
         <div class="box box-info">
             <div class="box-header with-border">
                 <i class="fa fa-edit"></i>
-                <h3 class="box-title">新闻信息</h3>
+                <h3 class="box-title">招聘信息</h3>
             </div>
-            <form id="newsForm" role="form" action="/admin/news/post" method="post" >
+            <form id="newsForm" role="form" action="/admin/jobs/post" method="post" >
                 <input type="hidden" id="id" name="id" value="{{singleNew.id}}">
-                <input type="hidden" id="imageType" value="singleNew" >
+                <input type="hidden" id="type" name="type" value="3">
                 <div class="box-body">
                     <div class="form-group required">
-                        <label for="title" class="control-label">新闻标题</label>
-                        <input type="text" class="form-control" id="title" name="title" placeholder="新闻标题" value="{{singleNew.title}}">
-                    </div>
-                    <div class="form-group required">
-                        <label for="type" class="control-label">新闻类型</label>
-                        <select class="form-control" id="type" name="type" placeholder="新闻类型"  >
-                            <option value="1" {{#equal singleNew.type 1}}selected="" {{/equal}} >德天动态</option>
-                            <option value="2"  {{#equal singleNew.type 2}}selected="" {{/equal}} >体育新闻</option>
-                        </select>
-                    </div>
-                    <div class="form-group ">
-                        <label for="image" class="control-label">新闻缩略图</label>
-                        <input id="image" name="file" type="file"  class="file-loading" accept="image/*">
-                        <input id="imageUrl" name="imageUrl" type="hidden" value="{{singleNew.image}}" >
-                        <div style="clear: both"></div>
+                        <label for="title" class="control-label">职位名称</label>
+                        <input type="text" class="form-control" id="title" name="title" placeholder="职位名称" value="{{singleNew.title}}">
                     </div>
                     <div class="form-group ">
                         <label for="priority" class="control-label">优先级</label>
@@ -39,17 +26,13 @@
                         <input type="checkbox" id="enabled" name="enabled" {{#if singleNew.enabled}}checked="checked"{{/if}}>
                     </div>
                     <div class="form-group required">
-                        <label for="desc" class="control-label">新闻摘要</label>
-                        <textarea class="form-control"  id="desc" name="desc">{{singleNew.desc}}</textarea>
-                    </div>
-                    <div class="form-group required">
-                        <label for="content" class="control-label">新闻内容</label>
+                        <label for="content" class="control-label">内容</label>
                         <textarea class="form-control" style="height:300px;visibility:hidden;" id="content" name="content" >{{singleNew.content}}</textarea>
                     </div>
                 </div>
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary">保存</button>
-                    <a href="/admin/news/" class="btn btn-default pull-right">取消</a>
+                    <a href="/admin/jobs/" class="btn btn-default pull-right">取消</a>
                 </div>
             </form>
         </div>

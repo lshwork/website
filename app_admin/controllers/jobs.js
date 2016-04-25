@@ -9,8 +9,8 @@ var fs = require('fs');
 
 exports.index = function (req, res, next) {
     var start = parseInt(req.query.start || 0);
-    var limit = 2;
-    var q = {deleted: false,type:{$in:[1,2]}};
+    var limit = 10;
+    var q = {deleted: false,type:3};
     if(req.query.title) q.title = new RegExp(req.query.title, "i");
     async.parallel({
         news: function (callback) {
@@ -21,8 +21,8 @@ exports.index = function (req, res, next) {
         }
     }, function (err, data) {
         if (err) return next(err);
-        res.render('news/index', {
-            title: '新闻管理',
+        res.render('jobs/index', {
+            title: '招聘管理',
             news: data.news,
             pagination: {
                 start: start,
@@ -36,8 +36,8 @@ exports.index = function (req, res, next) {
 
 
 exports.add = function (req, res, next) {
-    res.render('news/edit', {
-        title: '添加新闻',
+    res.render('jobs/edit', {
+        title: '添加职位',
         singleNew: {enabled: true}
     });
 };
@@ -45,8 +45,8 @@ exports.edit = function (req, res, next) {
     var id = req.query.id;
     New.findById(id).exec(function (err, singleNew) {
         if (err) return next(err);
-        res.render('news/edit', {
-            title: '修改新闻',
+        res.render('jobs/edit', {
+            title: '修改职位',
             singleNew: singleNew
         });
     });
@@ -66,15 +66,14 @@ exports.beforePost = function (req, res, next) {
     if(req.body.priority){
         singleNew.priority=req.body.priority;
     }
-    req.checkBody('title', '新闻标题为必填项').notEmpty();
-    req.checkBody('content', '新闻内容为必填项').notEmpty();
-    req.checkBody('desc', '新闻摘要为必填项').notEmpty();
+    req.checkBody('title', '职位名称为必填项').notEmpty();
+    req.checkBody('content', '内容为必填项').notEmpty();
     var errors = req.validationErrors();
     if (errors) {
-        return res.render('news/edit', {
-            title: id ? '修改新闻' : '新增新闻',
+        return res.render('jobs/edit', {
+            title: id ? '修改职位' : '新增职位',
             errors: errors,
-            singleNew: singleNew,
+            singleNew: singleNew
         });
     } else {
         req.singleNew = singleNew;
@@ -93,7 +92,7 @@ exports.post = function (req, res, next) {
             });
             singleNew.save(function (err) {
                 if (err) return next(err);
-                return res.redirect('/admin/news/');
+                return res.redirect('/admin/jobs/');
             });
         });
     } else {
@@ -101,7 +100,7 @@ exports.post = function (req, res, next) {
         var singleNew = new New(req.singleNew);
         singleNew.save(function (err) {
             if (err) return next(err);
-            res.redirect('/admin/news/');
+            res.redirect('/admin/jobs/');
         });
     }
 };
