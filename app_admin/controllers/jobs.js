@@ -13,8 +13,8 @@ exports.index = function (req, res, next) {
     var q = {deleted: false,type:3};
     if(req.query.title) q.title = new RegExp(req.query.title, "i");
     async.parallel({
-        news: function (callback) {
-            New.find(q).skip(start).limit(limit).sort({createdTime: -1}).exec(callback);
+        jobs: function (callback) {
+            New.find(q).skip(start).limit(limit).sort({priority:-1,createdTime: -1}).exec(callback);
         },
         count: function (callback) {
             New.count(q).exec(callback);
@@ -23,7 +23,7 @@ exports.index = function (req, res, next) {
         if (err) return next(err);
         res.render('jobs/index', {
             title: '招聘管理',
-            news: data.news,
+            jobs: data.jobs,
             pagination: {
                 start: start,
                 limit: limit,

@@ -73,8 +73,8 @@ router.post('/jobs/post', jobs.beforePost, jobs.post);
 router.post('/jobs/delete', jobs.updateDeleteStu);
 
 router.get('/activityApplies',activityApplies.index);
-router.get('/activityApplies/add', activityApplies.add);
-router.post('/activityApplies/post', activityApplies.beforePost, activityApplies.post);
+/*router.get('/activityApplies/add', activityApplies.add);
+router.post('/activityApplies/post', activityApplies.beforePost, activityApplies.post);*/
 router.get('/activityApplies/edit', activityApplies.edit);
 router.post('/activityApplies/delete',activityApplies.updateDeleteStu);
 

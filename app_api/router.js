@@ -4,16 +4,13 @@
 var express = require('express');
 var router = express.Router();
 var utils = require('./../utils');
-var fs=require('fs');
-/* GET home page. */
-router.get('/', function(req, res) {
-    res.json({message: 'api home'});
-});
+var jobs=require('./controllers/jobs');
+var activityApplies=require('./controllers/activityApplies');
 
-/*router.get('/sellers/demo',function(req,res,next){
-    var data = fs.readFileSync('a.json',"utf8");
-    var a=JSON.parse(data);
-    a.count=11;
-    fs.writeFileSync('a.json',JSON.stringify(a));
-});*/
+router.get('/getJobs',jobs.list);  //招纳贤士列表
+router.get('/getJobDetail',jobs.detail); //招纳贤士详情
+
+
+router.post('/activityApplies/post',activityApplies.beforePost,activityApplies.post); //报名
+
 module.exports = router;

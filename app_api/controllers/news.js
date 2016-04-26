@@ -10,18 +10,17 @@ var fs = require('fs');
 exports.index = function (req, res, next) {
     var start = parseInt(req.query.start || 0);
     var limit = 2;
-    var q = {deleted: false,type:{$in:[1,2]}};
-    if(req.query.title) q.title = new RegExp(req.query.title, "i");
+    var q = {deleted: false,enabled:true};
     async.parallel({
         news: function (callback) {
-            New.find(q).skip(start).limit(limit).sort({priority:-1,createdTime: -1}).exec(callback);
+            New.find(q).skip(start).limit(limit).sort({createdTime: -1}).exec(callback);
         },
         count: function (callback) {
             New.count(q).exec(callback);
         }
     }, function (err, data) {
         if (err) return next(err);
-        res.render('news/index', {
+        res.render('news', {
             title: '新闻管理',
             news: data.news,
             pagination: {
@@ -38,7 +37,7 @@ exports.index = function (req, res, next) {
 exports.add = function (req, res, next) {
     res.render('news/edit', {
         title: '添加新闻',
-        singleNew: {enabled: true}
+        singleNew: {enabled: true},
     });
 };
 exports.edit = function (req, res, next) {
@@ -47,7 +46,7 @@ exports.edit = function (req, res, next) {
         if (err) return next(err);
         res.render('news/edit', {
             title: '修改新闻',
-            singleNew: singleNew
+            singleNew: singleNew,
         });
     });
 };
@@ -60,7 +59,6 @@ exports.beforePost = function (req, res, next) {
         image: image,
         desc: req.body.desc,
         content: req.body.content,
-        type:req.body.type,
         enabled: req.body.enabled ? true : false
     };
     if(req.body.priority){

@@ -52,56 +52,7 @@ exports.edit = function(req, res, next) {
     });
 };
 
-exports.beforePost = function(req, res, next) {
-    var id = req.body.id;
-    var activityApply = {
-        realName: req.body.realName,
-        activityName: req.body.activityName,
-        identification: req.body.identification,
-        age: req.body.age,
-        job: req.body.job,
-        phone:req.body.phone
-    };
-    var phoneReg = /^0?1[3|4|5|7|8][0-9]\d{8}$/;
-    req.checkBody('realName', '联系姓名是必填项').notEmpty();
-    req.checkBody('phone', '联系电话是必填项').notEmpty();
-    req.checkBody('phone', '手机号码格式不正确').matches(phoneReg);
-    var errors = req.validationErrors();
-    if (errors) {
-            return res.render('activityApplies/edit', {
-                errors: errors,
-                title: id ? '修改报名信息' : '新增地址',
-                activityApply: activityApply
-            });
-    } else {
-        req.activityApply = activityApply;
-        next();
-    }
-};
 
-exports.post = function(req, res, next) {
-    var id = req.body.id;
-    if (id) {
-        // 修改
-        ActivityApply.findById(id, function(err, activityApply) {
-            if (err) return next(err);
-            extend(true, activityApply, req.activityApply, {
-                updatedTime: Date.now()
-            });
-            activityApply.save(function(err) {
-                if (err) return next(err);
-                res.redirect('/admin/activityApplies/');
-            });
-        });
-    } else {
-        // 新增
-        var activityApply = new ActivityApply(req.activityApply);
-        activityApply.save(function(err) {
-            if (err) return next(err);
-            res.redirect('/admin/activityApplies/');
-        });
-    }
-};
 
 exports.updateDeleteStu=function(req,res,next){
     var id=req.body.id;
