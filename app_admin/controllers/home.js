@@ -199,8 +199,7 @@ exports.upload=function(req,res,next){
 
 exports.imageDelete=function(req,res,next){
     var key=req.body.key;
-    key=key?key.replace(/\//g,'\\'):"";
-    var filePath=config.basePath+key;
+    var filePath=(config.basePath+key).replace(/\\/g,'/');
     console.log(filePath);
     fs.exists(filePath, function( exists ){
         if(exists){

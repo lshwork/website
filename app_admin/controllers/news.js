@@ -9,7 +9,7 @@ var fs = require('fs');
 
 exports.index = function (req, res, next) {
     var start = parseInt(req.query.start || 0);
-    var limit = 2;
+    var limit = 10;
     var q = {deleted: false,type:{$in:[1,2]}};
     if(req.query.title) q.title = new RegExp(req.query.title, "i");
     async.parallel({
@@ -112,6 +112,15 @@ exports.updateDeleteStu = function (req, res, next) {
         if (err) return next(err);
         singleNew.deleted = req.body.deleted;
         singleNew.updatedTime = Date.now();
+        if(singleNew.image){
+            var filePath=(config.basePath+singleNew.image).replace(/\\/g,'/');
+            fs.exists(filePath, function( exists ){
+                if(exists){
+                    fs.unlink(filePath,function(){
+                    });
+                }
+            });
+        }
         singleNew.save(function (err) {
             if (err) return next(err);
             res.json({

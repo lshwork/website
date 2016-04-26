@@ -22,21 +22,7 @@ exports.beforePost = function(req, res, next) {
         contactPhone: req.body.contactPhone,
         activityName: req.body.activityName,
         guardianPhone: req.body.guardianPhone
-        /* realName: {type: String}, //真实姓名
-         sex:{type:String},  //性别
-         birthday:{type:String},  //出生年月
-         nationality:{type:String},  //国籍
-         blood:{type:String},  //血型
-         phone: {type: String}, //电话、手机号码
-         location:{type:String},  //居住地
-         email:{type:String},  //邮箱
-         contactAddress:{type:String},  //邮箱
-         postCode:{type:String},  //邮编
-         contactName:{type:String},  //紧急联系人
-         contactPhone:{type:String},  //紧急联系人电话
-         activityName: {type: String},//活动名称
-         guardianPhone: {type: String},//监护人电话
-        age: req.body.age,
+        /*age: req.body.age,
         job: req.body.job,
         phone:req.body.phone*/
     };

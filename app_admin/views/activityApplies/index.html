@@ -1,13 +1,21 @@
 <div class="row">
     <div class="col-md-9">
         <div class="toolbar">
-            <form id="search_form" class="form-inline" method="get" action="/admin/activityApplies">
+            <form id="activityApply_form" class="form-inline" method="get" action="/admin/activityApplies">
                 <div class="form-group">
                     <label class="sr-only" for="activityName">活动名称</label>
                     <select class="form-control" id="activityName" name="activityName" >
-                        <option value="" >全部</option>
+                        <option value="" >活动名称</option>
                         <option value="全程马拉松" {{#equal pagination.query.activityName '全程马拉松'}}selected="" {{/equal}} >全程马拉松</option>
                         <option value="半程马拉松" {{#equal pagination.query.activityName '半程马拉松'}}selected="" {{/equal}} >半程马拉松</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="activityName">性别</label>
+                    <select class="form-control" id="sex" name="sex" >
+                        <option value="" >性别</option>
+                        <option value="1" {{#equal pagination.query.sex '1'}}selected="" {{/equal}} >男</option>
+                        <option value="0" {{#equal pagination.query.sex '0'}}selected="" {{/equal}} >女</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -22,6 +30,7 @@
                     <span class="glyphicon glyphicon-search"></span>
                     搜索
                 </button>
+                <a onclick="downloadExcel()" class="btn btn-info "  >导出</a>
             </form>
         </div>
     </div>
@@ -50,7 +59,10 @@
                     <tr>
                         <td style="text-align: center">{{activityName}}</td>
                         <td style="text-align: center">{{realName}}</td>
-                        <td style="text-align: center">{{sex}}</td>
+                        <td style="text-align: center">
+                            {{#equal sex 1}}男{{/equal}}
+                            {{#equal sex 0}}女{{/equal}}
+                        </td>
                         <td style="text-align: center">{{birthday}}</td>
                         <td style="text-align: center">{{nationality}}</td>
                         <td style="text-align: center">{{phone}}</td>

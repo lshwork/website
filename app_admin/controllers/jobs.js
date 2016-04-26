@@ -111,6 +111,15 @@ exports.updateDeleteStu = function (req, res, next) {
         if (err) return next(err);
         singleNew.deleted = req.body.deleted;
         singleNew.updatedTime = Date.now();
+        if(singleNew.image){
+            var filePath=config.basePath+singleNew.image;
+            fs.exists(filePath, function( exists ){
+                if(exists){
+                    fs.unlink(filePath,function(){
+                    });
+                }
+            });
+        }
         singleNew.save(function (err) {
             if (err) return next(err);
             res.json({
@@ -119,3 +128,4 @@ exports.updateDeleteStu = function (req, res, next) {
         });
     });
 };
+
