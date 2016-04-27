@@ -96,6 +96,7 @@ img,input,select,textarea,button {vertical-align: middle;}
 
 .pull-right {
     float: right!important;
+    margin-top: 15px;
 }
 .no-margin {
     margin: 0 !important;

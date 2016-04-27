@@ -15,10 +15,10 @@
 .round_btn{position:absolute;left: 180px;top:470px;}
 .round_btn li{width:8px;height: 8px;border: 5px solid #fff;border-radius: 50%;float: left;margin-right: 14px;cursor:pointer;}
 .round_btn li:last-child{margin-right: 0;}
-.logo{width:384px;height:60px;background: #fff;position:absolute;top: 20px;left: -16px;line-height: 60px;z-index: 50;}
-.logo a:first-child{display:inline-block;margin-left: 176px;font-size:24px;line-height:60px}
+.logo{width:344px;height:60px;background: #fff;position:absolute;top: 20px;left: -16px;line-height: 60px;z-index: 50;}
+.logo a:first-child{display:inline-block;margin-left: 136px;font-size:24px;line-height:60px}
 .logo img{float:left;display:inline;margin-top:5px;margin-right:10px}
-.nav_box{height: 40px;background:#d71920;width:100%;position: absolute;top:620px;left: 0px;z-index: 50;}
+.nav_box{height: 40px;background:#d71920;width:100%;position: absolute;top:620px;left: 0px;z-index: 9;}
 .nav{width:1000px; margin:0 auto; position:relative}
 .nav li{font-size: 14px;color: #fff;float: left;cursor: pointer;position: relative;height: 40px;}
 .nav li h3{line-height: 40px;padding:0 38px; color:#fff;}
@@ -33,7 +33,7 @@
 .nav_bor li a{height: 40px;padding:0 12px;color: #999;float: left;line-height: 40px;-webkit-transform: skew(16deg,0); -moz-transform: skew(16deg,0); -o-transform: skew(16deg,0); -ms-transform: skew(16deg,0); transform: skew(16deg,0);}
 .nav_bor li a:hover{color: #fff;}
 
-.shuffling_box{height:660px;overflow: hidden; background:#000}
+.shuffling_box{height:640px;overflow: hidden; background:#000}
 .shuffling{position: relative;left: 0;top:100px;height: 520px;}
 .shuffling li{height:520px;float: left;background-size: cover;background-repeat:no-repeat;}
 .shuffling li:first-child{background-image: url(../images/banner1.jpg);}
@@ -43,7 +43,7 @@
 .shuffling_btn:hover{background:#d71920;}
 .bm{color:#fff; position:absolute; right:-100px; top:30px;width:100px; text-align:center;height:40px;line-height:40px;background:#D71920; border-radius:5px}
 .countdown-box{height: 96px;border-bottom: 4px solid #d71920;background: #333;position:absolute;top: 0px;left: 0;width:100%;z-index: 2;}
-.countdown{line-height: 100px;font-size: 20px;color: #fff;height: 100%;}
+.countdown{line-height: 100px;font-size: 20px;color: #fff;height: 100%; position: relative}
 .countdown span:first-child,.countdown span:last-child a{color:#ccc;}
 .countdown span:last-child a:after{content: '>';color:#d71920;padding-left: 20px;}
 .cd_time{height: 100%;font-style: italic;}
