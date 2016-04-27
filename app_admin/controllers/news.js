@@ -9,7 +9,7 @@ var fs = require('fs');
 
 exports.index = function (req, res, next) {
     var start = parseInt(req.query.start || 0);
-    var limit = 10;
+    var limit = 1;
     var q = {deleted: false,type:{$in:[1,2]}};
     if(req.query.title) q.title = new RegExp(req.query.title, "i");
     async.parallel({

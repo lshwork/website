@@ -7,9 +7,8 @@
 <meta name="keywords" content="" />
 <link rel="stylesheet" type="text/css" href="/public/site/style/base.css">
 <link rel="stylesheet" type="text/css" href="/public/site/style/index.css">
-<script type="text/javascript"src="/public/site/js/jquery-1.7.2.js"></script>
-<script type="text/javascript"src="/public/site/js/index.js"></script>
-
+<script type="text/javascript" src="/public/site/js/jquery-1.7.2.js"></script>
+<script type="text/javascript" src="/public/site/js/index.js"></script>
 </head>
 <body>
 <div class="container">
@@ -20,10 +19,10 @@
         <div class="fr">
           <div class="search_ico1"></div>
           <div class="search search_ico sk-16 fl">
-            <form action="/plus/search.php">
+            <form action="">
               <input type="hidden" name="kwtype" value="0" />
               <input class="sk16" type="search" name="q" value="">
-              <input class="sub sk16" type="submit" name="" value="搜索">
+              <input class="sub sk16" type="submit" name="" value="搜索1">
             </form>
           </div>
         </div>
@@ -65,8 +64,8 @@
         <h3 title="集团新闻"><a href="news.htm" title="集团新闻">集团新闻</a></h3>
         <div class="nav_list sk-16">
           <ul class="nav_bor clearfix">
-            <li><a href="/news?type=1">德天动态</a></li>
-            <li><a href="/news?type=2">体育新闻</a></li>
+            <li><a href="#">德天动态</a></li>
+            <li><a href="#">体育新闻</a></li>
           </ul>
         </div>
       </li>
@@ -110,11 +109,18 @@
         <li><i>20</i>Sec</li>
       </ul>
       <span class=" fr pr20" style="font-size:18px"> 
-     
+      <!----> 
       <a href="#" target="_blank">常熟国际马拉松</a> </span> </div>
   </div>
   <div class="list_con_box w1000 clearfix">
-    <div class="list_con_l fl"> <a href="#" class="leftMenu_a on">德天介绍</a> <a href="#" class="leftMenu_a">企业文化</a> <a href="#" class="leftMenu_a">董事长致辞</a> <a href="#" class="leftMenu_a">团队介绍</a> <a href="#" class="leftMenu_a">德天事迹</a> </div>
+    <div class="list_con_l fl"> 
+    <a href="#" class="leftMenu_a on">德天介绍</a> 
+    <a href="#" class="leftMenu_a">企业文化</a> 
+    <a href="#" class="leftMenu_a">董事长致辞</a> 
+    <a href="#" class="leftMenu_a">团队介绍</a> 
+    <a href="#" class="leftMenu_a">德天事迹</a> 
+   
+    </div>
     <div class="list_con_r fr"> 
       <!--                <span class="data"><i class="data_ico"></i>
                 
@@ -122,13 +128,13 @@
       <div class="list_con_bor"> 
         <!-- <h3 class="lixt_con_tit">智美体育集团</h3> -->
         <div class="list_con">
-          {{#news}}
-          <div class="tzqb" style="height:30px; line-height:30px; border-bottom:#ccc dotted 1px;"> <a href="/newsDetail?id={{id}}" target="_blank">{{title}}</a><span class="tzqbt">{{formatDateYYYYMMDD createdTime}}</span></div>
-          {{/news}}
-        </div>
-          <div class="pull-right">
-            {{sitePaginate pagination}}
+          <div style="text-align: center;">
+            <div>
+            {{{singleNew.content}}}
+            </div>
           </div>
+          <br>
+        </div>
       </div>
     </div>
   </div>

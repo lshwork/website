@@ -7,6 +7,7 @@ var news=require('./controllers/news')
 
 
 router.get('/news',news.index);
+router.get('/newsDetail',news.detail);
 router.get('/about',function(req,res){
     return res.render('about')
 });
