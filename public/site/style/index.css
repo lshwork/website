@@ -9,7 +9,7 @@
 .language a{color: #fff;}
 .ui-text{   border: 1px solid #ccc;  border-radius: 5px;  width:480px;  height: 35px; padding: 0 5px}
 .ui-label{width: 100px;height: 35px;line-height: 35px;display: inline-block}
-.ui-sub{ width: 200px;background: #D71920;height: 35px;display: block;margin: 20px auto 0 auto;color: #fff;font-size: 20px;border-radius: 5px}
+.ui-sub{ width: 200px;background: #D71920;height: 35px;display: block;margin: 20px auto 0 auto;color: #fff;font-size: 20px;border-radius: 5px;line-height: 35px;text-align: center}
 .search_ico1{background: url(../images/search-ico.png) no-repeat;width:15px;height:15px;position:absolute;top:13px;right:150px;cursor:pointer;}
 .slogan{height: 100px;color:#fff;position:absolute;top: 250px;left: 180px;font-size: 24px;}
 .round_btn{position:absolute;left: 180px;top:470px;}
