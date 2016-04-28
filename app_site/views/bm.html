@@ -107,7 +107,20 @@
       }else if(!myreg.test(guardianPhone)){
         alert("请输入正确的监护人电话");
       }else{
-        $("#template").submit();
+        $.ajax({
+          cache: true,
+          type: "POST",
+          url:"/api/activityApplies/post",
+          data:$('#template').serialize(),
+          success: function() {
+            alert("报名成功")
+
+          },
+          error: function() {
+          }
+
+        });
+
       }
     })
   })

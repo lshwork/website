@@ -9,7 +9,7 @@ var fs = require('fs');
 
 exports.index = function (req, res, next) {
     var start = parseInt(req.query.start || 0);
-    var limit = 1;
+    var limit = 8;
     var q = {deleted: false,enabled:true,type:{$in:[1,2]}};
     var type=req.query.type;
     if(type!=1&&type!=2){
@@ -41,7 +41,7 @@ exports.index = function (req, res, next) {
 
 exports.detail = function (req, res, next) {
     var id = req.query.id;
-    New.findById(id).exec(function (err, singleNew) {
+    New.findById(id).populate('createdUser',{realName:1}).exec(function (err, singleNew) {
         if (err) return next(err);
         return res.render('newsDetail', {
             title: '新闻详情',

@@ -75,6 +75,7 @@ router.get('/activityApplies',activityApplies.index);
 router.post('/activityApplies/post', activityApplies.beforePost, activityApplies.post);
 router.get('/activityApplies/edit', activityApplies.edit);
 router.get('/activityApplies/exportExcel',activityApplies.exportExcel);
+router.post('/activityApplies/delete', activityApplies.updateDeleteStu);
 
 router.get('/contents',contents.index);
 router.get('/contents/add', contents.add);

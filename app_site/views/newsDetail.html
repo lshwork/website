@@ -11,8 +11,10 @@
     <div class="list_con_bor">
       <!-- <h3 class="lixt_con_tit">智美体育集团</h3> -->
       <div class="list_con">
-        <div style="text-align: center;">
+        <div>
           <div>
+            <p style="font-size: 16px;padding-bottom: 5px;text-align: center">{{{singleNew.title}}}</p>
+            <p style="font-size: 12px;padding-bottom: 5px;text-align: center">作者：{{{singleNew.createdUser.realName}}}&nbsp;&nbsp;发布时间：{{{formatDate singleNew.updatedTime}}}</p>
             {{{singleNew.content}}}
           </div>
         </div>

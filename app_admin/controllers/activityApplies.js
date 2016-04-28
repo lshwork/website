@@ -122,7 +122,7 @@ exports.updateDeleteStu=function(req,res,next){
         activityApply.updatedTime = Date.now();
         activityApply.save(function (err) {
             if (err) return next(err);
-
+            return res.redirect("/admin/activityApplies");
         });
     });
 };
