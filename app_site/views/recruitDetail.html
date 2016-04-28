@@ -7,7 +7,7 @@
   </div>
   <div class="list_con_r fr">
     <div class="list_con_bor">
-
+      <p class="title" style="text-align: center"></p>
       <div class="list_con">
 
       </div>
@@ -23,6 +23,7 @@
       data:{id:id},
       type:'GET',
       success:function(obj) {
+        $(".title").append(obj.job.title);
         $(".list_con").append(obj.job.content);
       },error : function() {}
     });
