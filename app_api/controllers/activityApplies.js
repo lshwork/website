@@ -27,15 +27,13 @@ exports.beforePost = function(req, res, next) {
         phone:req.body.phone*/
     };
     var phoneReg = /^0?1[3|4|5|7|8][0-9]\d{8}$/;
-  /*  req.checkBody('realName', '联系姓名是必填项').notEmpty();
+    req.checkBody('realName', '姓名是必填项').notEmpty();
     req.checkBody('phone', '联系电话是必填项').notEmpty();
-    req.checkBody('phone', '手机号码格式不正确').matches(phoneReg);*/
+    req.checkBody('phone', '手机号码格式不正确').matches(phoneReg);
     var errors = req.validationErrors();
     if (errors) {
-        return res.render('activityApplies/edit', {
-            errors: errors,
-            title: id ? '修改报名信息' : '新增地址',
-            activityApply: activityApply
+        return res.json({
+            errors: errors
         });
     } else {
         req.activityApply = activityApply;

@@ -9,12 +9,12 @@ var fs = require('fs');
 
 exports.index = function (req, res, next) {
     var start = parseInt(req.query.start || 0);
-    var limit = 1;
+    var limit = 10;
     var q = {deleted: false,type:{$in:[1,2]}};
     if(req.query.title) q.title = new RegExp(req.query.title, "i");
     async.parallel({
         news: function (callback) {
-            New.find(q).skip(start).limit(limit).sort({priority:-1,createdTime: -1}).exec(callback);
+            New.find(q).populate('createdUser',{realName:1}).populate('updatedUser',{realName:1}).skip(start).limit(limit).sort({priority:-1,createdTime: -1}).exec(callback);
         },
         count: function (callback) {
             New.count(q).exec(callback);
@@ -74,7 +74,7 @@ exports.beforePost = function (req, res, next) {
         return res.render('news/edit', {
             title: id ? '修改新闻' : '新增新闻',
             errors: errors,
-            singleNew: singleNew,
+            singleNew: singleNew
         });
     } else {
         req.singleNew = singleNew;
@@ -84,12 +84,14 @@ exports.beforePost = function (req, res, next) {
 
 exports.post = function (req, res, next) {
     var id = req.body.id;
+    var currentUserId=req.currentUserId;
     if (id) {
         // 修改
         New.findById(id, function (err, singleNew) {
             if (err) return next(err);
             extend(true, singleNew, req.singleNew, {
-                updatedTime: Date.now()
+                updatedTime: Date.now(),
+                updatedUser:currentUserId
             });
             singleNew.save(function (err) {
                 if (err) return next(err);
@@ -99,6 +101,8 @@ exports.post = function (req, res, next) {
     } else {
         // 新增
         var singleNew = new New(req.singleNew);
+        singleNew.createdUser=currentUserId;
+        singleNew.updatedUser=currentUserId;
         singleNew.save(function (err) {
             if (err) return next(err);
             res.redirect('/admin/news/');
@@ -108,17 +112,37 @@ exports.post = function (req, res, next) {
 
 exports.updateDeleteStu = function (req, res, next) {
     var id = req.body.id;
+    var currentUserId=req.currentUserId;
     New.findById(id, function (err, singleNew) {
         if (err) return next(err);
-        singleNew.deleted = req.body.deleted;
-        singleNew.updatedTime = Date.now();
-        if(singleNew.image){
-            var filePath=(config.basePath+singleNew.image).replace(/\\/g,'/');
-            fs.exists(filePath, function( exists ){
-                if(exists){
-                    fs.unlink(filePath,function(){
-                    });
-                }
+        var content=singleNew.content;
+         singleNew.deleted = req.body.deleted;
+         singleNew.updatedTime = Date.now();
+         singleNew.updatedUser=currentUserId;
+         if(singleNew.image){
+             var filePath=(config.basePath+singleNew.image).replace(/\\/g,'/');
+             fs.exists(filePath, function( exists ){
+                 if(exists){
+                     fs.unlink(filePath,function(){
+                     });
+                 }
+             });
+         }
+        if(content){
+            var src=new RegExp("src\\s*=\\s*['\"]([^'\"]+)['\"]","g");
+            var srcArray=content.match(src);
+            if(srcArray&&srcArray.length>0)
+            async.each(srcArray,function(s,callback){
+                var filePath=(config.basePath+s.replace(/src=/g,"").replace(/"/g,"")).replace(/\\/g,'/');
+                fs.exists(filePath, function( exists ){
+                    if(exists){
+                        fs.unlink(filePath,function(){
+                        });
+                    }
+                });
+                callback(null);
+            },function(err){
+
             });
         }
         singleNew.save(function (err) {

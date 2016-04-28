@@ -11,7 +11,11 @@ exports.index = function (req, res, next) {
     var start = parseInt(req.query.start || 0);
     var limit = 1;
     var q = {deleted: false,enabled:true,type:{$in:[1,2]}};
-    if(req.query.type) q.type=req.query.type;
+    var type=req.query.type;
+    if(type!=1&&type!=2){
+        type=1;
+    }
+    if(type) q.type=type;
     async.parallel({
         news: function (callback) {
             New.find(q).skip(start).limit(limit).sort({createdTime: -1}).exec(callback);

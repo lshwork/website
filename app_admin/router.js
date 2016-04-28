@@ -45,13 +45,13 @@ router.use(utils.isAdmin);
 
 router.get('/', home.index);
 router.get('/logout', home.logout);
-router.get('/users/', users.index);
-router.get('/users/add', users.add);
-router.get('/users/edit', users.edit);
-router.post('/users/post', users.beforePost, users.post);
-router.post('/users/delete', users.updateDeleteStu);
-router.get('/users/profile/:id', users.profile);
+router.get('/users/',users.isAdmin, users.index);
+router.get('/users/add',users.isAdmin, users.add);
+router.get('/users/edit',users.isAdmin, users.edit);
+router.post('/users/post',users.isAdmin, users.beforePost, users.post);
+router.post('/users/delete',users.isAdmin, users.updateDeleteStu);
 /*router.post('/users/pic/upload/:fileKey', upload.single('avatar'), users.upload);*/
+
 router.post('/image/delete', home.imageDelete);
 router.get('/advertisements', advertisements.index);
 router.get('/advertisements/add', advertisements.add);

@@ -35,6 +35,10 @@
                         <th style="text-align: center">职位名称</th>
                         <th style="text-align: center" >优先级</th>
                         <th style="text-align: center" >是否可用</th>
+                        <th style="text-align: center" >创建人</th>
+                        <th style="text-align: center" >创建时间</th>
+                        <th style="text-align: center" >修改人</th>
+                        <th style="text-align: center" >修改时间</th>
                         <th  style="text-align: center" >操作</th>
                     </tr>
                     {{#jobs}}
@@ -42,6 +46,10 @@
                         <td  style="text-align: center">{{title}}</td>
                         <td style="text-align: center">{{priority}}</td>
                         <td style="text-align: center">{{#if enabled}}是{{else}}否{{/if}}</td>
+                        <td style="text-align: center">{{createdUser.realName}}</td>
+                        <td style="text-align: center">{{formatDate createdTime}}</td>
+                        <td style="text-align: center">{{createdUser.realName}}</td>
+                        <td style="text-align: center">{{ formatDate updatedTime}}</td>
                         <td style="text-align: center">
                             <a href="javascript:void(0)" class="btn btn-danger" onclick="deleteData('{{id}}','jobs')" >删除</a>
                             <a href="/admin/jobs/edit?id={{id}}" class="btn btn-info">编辑</a>

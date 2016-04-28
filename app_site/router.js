@@ -8,6 +8,9 @@ var news=require('./controllers/news')
 
 router.get('/news',news.index);
 router.get('/newsDetail',news.detail);
+router.get('/',function(req,res){
+    return res.render('index')
+});
 router.get('/index',function(req,res){
     return res.render('index')
 });

@@ -3,6 +3,7 @@
  */
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var ObjectId=Schema.Types.ObjectId;
 /**
  * 新闻
  * @type {Model|Aggregate|*}
@@ -16,6 +17,8 @@ exports.New = mongoose.model('New', new Schema({
     content: {type: String},
     enabled:{type:Boolean,default:true},
     deleted:{type:Boolean,default:false},
+    createdUser:{type:ObjectId,ref:"User"},
+    updatedUser:{type:ObjectId,ref:"User"},
     createdTime: {type: Date, default: Date.now, index: true},
     updatedTime: {type: Date, default: Date.now, index: true}
 }));

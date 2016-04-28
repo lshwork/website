@@ -38,7 +38,7 @@
                     <tr>
                         <th>用户名</th>
                         <th>手机号码</th>
-                        <th>电子邮箱</th>
+                        <th>姓名</th>
                         <th>创建时间</th>
                         <th>修改时间</th>
                         <th>操作</th>
@@ -47,11 +47,11 @@
                     <tr>
                         <td>{{username}}</td>
                         <td>{{phone}}</td>
-                        <td>{{email}}</td>
+                        <td>{{realName}}</td>
                         <td>{{{formatDate createdTime}}}</td>
                         <td>{{{formatDate updatedTime}}}</td>
                         <td>
-                            <a href="javascript:void(0)" class="btn btn-danger" onclick="deleteData('{{id}}','users')" >删除</a>
+                            {{#equal isAdmin false}}<a href="javascript:void(0)" class="btn btn-danger" onclick="deleteData('{{id}}','users')" >删除</a>{{/equal}}
                             <a href="/admin/users/edit?id={{id}}" class="btn btn-primary">编辑</a>
                         </td>
                     </tr>

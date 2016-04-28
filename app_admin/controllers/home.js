@@ -6,6 +6,8 @@ var async = require('async');
 var uuid = require('node-uuid');
 var utils = require('../../utils');
 var User = require('../../models/user').User;
+var New = require('../../models/new').New;
+var ActivityApply = require('../../models/activityApply').ActivityApply;
 var config = require('../../config');
 var fs = require('fs');
 /*__dirname//当前路径
@@ -14,12 +16,20 @@ exports.index = function (req, res, next) {
     async.parallel({
         userCount: function (callback) {
             User.count({deleted: false}, callback);
+        },
+        activityAppliesCount: function (callback) {
+            ActivityApply.count({deleted: false}, callback);
+        },
+        newCount: function (callback) {
+            New.count({deleted: false,type:{$in:[1,2]}}, callback);
         }
     }, function (err, data) {
         if (err) return next(err);
         res.render('index', {
             title: '主页',
-            userCount: data.userCount
+            userCount: data.userCount,
+            activityAppliesCount: data.activityAppliesCount,
+            newCount: data.newCount
         });
     });
 };
@@ -27,113 +37,41 @@ exports.index = function (req, res, next) {
 exports.login = function (req, res) {
     res.render('login', {layout: false});
 };
-
-
-
-
-
-/*exports.uploadKindEditor = function (req, res, next) {
-    console.log(req.file);
-    var file = req.file;
-    if (file) {
-        if (file.size > 2048000) {
-            fs.unlink(file.destination + file.filename, function () {
-                console.log('success')
-                return res.json({
-                    error: 1,
-                    message: '文件超出2M限制'
-                });
-            });
-        } else {
-            var url = config.imageBaseUrl + file.filename;
-            return res.json({
-                error: 0,
-                url: url
-            })
-        }
-    } else {
-        return res.json({
-            error: 1,
-            message: '只支持图片格式的文件',
-            key: 123
-        });
-    }
-
-};
-exports.upload = function (req, res, next) {
-    console.log(req.file);
-    var file = req.file;
-    if (file) {
-        if (file.size > 2048000) {
-            fs.unlink(file.destination + file.filename, function () {
-                console.log('success')
-                return res.json({
-                    error: 1,
-                    message: '文件超出2M限制'
-                });
-            });
-        } else {
-            var url = config.imageBaseUrl + file.filename;
-            var path = "." + url.substr(url.indexOf('/public'), url.length);
-            return res.json({
-                initialPreview: [
-                    "<img style='height:160px' src='" + url + "' class='file-preview-image'>"
-                ],
-                initialPreviewConfig: [
-                    {caption: file.originalname, width: '120px', url: '/admin/pic/deleteImage', key: path}
-                ],
-                append: true,
-                url: url
-            })
-        }
-
-    } else {
-        return res.json({
-            error: 1,
-            message: '只支持图片格式的文件',
-            key: 123
-        });
-    }
-
-};*/
-
 exports.postLogin = function (req, res, next) {
-    req.checkBody('email', '邮箱无效').isEmail();
+    req.checkBody('username', '用户名不能为空').notEmpty();
     req.checkBody('password', '密码不能为空').notEmpty();
     var errors = req.validationErrors();
     if (errors) {
         return res.render('login', {
             layout: false,
             errors: errors,
-            email: req.body.email,
+            username: req.body.username,
             rememberMe: req.body.rememberMe
         });
     }
-    var email = req.body.email;
+    var username = req.body.username;
     var password = req.body.password;
     var rememberMe = req.body.rememberMe;
     User.findOne({
-        email: email
+        username: username
     }, function (err, user) {
         if (err) return next(err);
-
         if ((!user)) {
             var errors = [{msg: '登录信息不正确或没有管理权限'}];
             return res.render('login', {
                 layout: false,
                 errors: errors,
-                email: req.body.email,
+                username: req.body.username,
                 rememberMe: req.body.rememberMe
             });
         }
-
         user.comparePassword(password, function (err, matched) {
             var errors = [{msg: '邮箱或密码不正确'}];
             if (!matched) {
                 return res.render('login', {
                     layout: false,
                     errors: errors,
-                    email: req.body.email,
+                    username: req.body.username,
                     rememberMe: req.body.rememberMe
                 });
             }
@@ -169,14 +107,6 @@ exports.logout = function (req, res, next) {
     });
 };
 
-exports.carSystem=function(req,res,next){
-    var a = fs.readFileSync('carSystemSetting.json',"utf8");
-    var setting=JSON.parse(a);
-    return res.render('cars/setting',{
-        setting:setting,
-        title:"车辆电销系统设置"
-    })
-};
 
 
 exports.upload=function(req,res,next){

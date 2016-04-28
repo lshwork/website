@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var ObjectId=Schema.Types.ObjectId;
+
 /**
  * 活动报名
  * @type {Model|Aggregate|*}

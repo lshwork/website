@@ -62,9 +62,6 @@ var obj = setInterval(function(){
 */
 
 hbs.registerHelper('equal', function (lvalue, rvalue, options) {
-    console.log(lvalue)
-    console.log(rvalue)
-    console.log(123)
     if (arguments.length < 3) {
         throw new Error('Handlebars Helper equal needs 2 parameters');
     }

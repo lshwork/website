@@ -8,10 +8,10 @@ var Schema = mongoose.Schema;
 var ObjectId=Schema.Types.ObjectId;
 var userSchema = new mongoose.Schema({
     username: { type: String, required: false, index: { unique: true, sparse : true } },
-    phone: { type: String, required: true, index: { unique: true } },
-    email: { type: String, required: false, index: { unique: true , sparse : true} },
     password: { type: String },
-    enabled: { type:Boolean, default: true },
+    isAdmin: { type: Boolean,default:false },
+    phone: { type: String },
+    realName: { type: String},
     deleted: { type: Boolean, default: false, index: true },
     createdTime: { type: Date, default: Date.now, index: true },
     updatedTime: { type: Date, default: Date.now, index: true }

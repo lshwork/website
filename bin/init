@@ -9,10 +9,8 @@ var Content = require('../models/content').Content;
 mongoose.connect(config.database);
 
 var admin = new User({
-    username: 'administrator',
-    phone: '13706233186',
-    email: 'admin@lesnho.com',
-    password: 'ruf20@3kw%'
+    username: 'admin',
+    password: 'detiantiyu'
 });
 
 admin.save(function (err) {

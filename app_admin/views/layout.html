@@ -97,9 +97,6 @@
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
-                                <div class="pull-left">
-                                    <a href="/admin/users/profile/{{currentUser.id}}" class="btn btn-default btn-flat">资料</a>
-                                </div>
                                 <div class="pull-right">
                                     <a href="/admin/logout" class="btn btn-default btn-flat">登出</a>
                                 </div>
@@ -126,10 +123,9 @@
                     <p>{{currentUser.username}}</p>
                 </div>
             </div>
-            <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
                 <li><a href="/admin/"><i class="fa fa-circle-o"></i> <span>主页</span></a></li>
-                <li><a href="/admin/users/"><i class="fa fa-circle-o text-red"></i> <span>用户</span></a></li>
+               {{#if currentUser.isAdmin}} <li><a href="/admin/users/"><i class="fa fa-circle-o text-red"></i> <span>用户</span></a></li>{{/if}}
                 <li class="header">基本管理</li>
                 <li><a href="/admin/news"><i class="fa fa-circle-o text-green"></i> <span>新闻管理</span></a></li>
                 <li><a href="/admin/jobs"><i class="fa fa-circle-o text-green"></i> <span>招纳贤士</span></a></li>
