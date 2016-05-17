@@ -10,7 +10,8 @@ mongoose.connect(config.database);
 
 var admin = new User({
     username: 'admin',
-    password: 'detiantiyu'
+    password: 'detiantiyu',
+    isAdmin:true
 });
 
 admin.save(function (err) {
