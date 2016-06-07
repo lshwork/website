@@ -15,7 +15,7 @@ exports.index = function (req, res, next) {
     if(req.query.name) q.name = new RegExp(req.query.name, "i");
     async.parallel({
         contents: function (callback) {
-            Content.find(q).skip(start).limit(limit).sort({createdTime: 1}).exec(callback);
+            Content.find(q).skip(start).limit(limit).sort({parentName:1,updatedTime: -1}).exec(callback);
         },
         count: function (callback) {
             Content.count(q).exec(callback);
