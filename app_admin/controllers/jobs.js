@@ -21,7 +21,7 @@ exports.index = function (req, res, next) {
         }
     }, function (err, data) {
         if (err) return next(err);
-        res.render('jobs/index', {
+        return res.render('jobs/index', {
             title: '招聘管理',
             jobs: data.jobs,
             pagination: {
@@ -36,7 +36,7 @@ exports.index = function (req, res, next) {
 
 
 exports.add = function (req, res, next) {
-    res.render('jobs/edit', {
+    return res.render('jobs/edit', {
         title: '添加职位',
         singleNew: {enabled: true}
     });
@@ -45,7 +45,7 @@ exports.edit = function (req, res, next) {
     var id = req.query.id;
     New.findById(id).exec(function (err, singleNew) {
         if (err) return next(err);
-        res.render('jobs/edit', {
+        return res.render('jobs/edit', {
             title: '修改职位',
             singleNew: singleNew
         });

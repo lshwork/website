@@ -22,7 +22,7 @@ exports.index = function (req, res, next) {
         }
     }, function (err, data) {
         if (err) return next(err);
-        res.render('contents/index', {
+        return res.render('contents/index', {
             title: '内容管理',
             contents: data.contents,
             pagination: {
@@ -37,7 +37,7 @@ exports.index = function (req, res, next) {
 
 
 exports.add = function (req, res, next) {
-    res.render('contents/edit', {
+    return res.render('contents/edit', {
         title: '添加内容'
     });
 };
@@ -45,7 +45,7 @@ exports.edit = function (req, res, next) {
     var id = req.query.id;
     Content.findById(id).exec(function (err, content) {
         if (err) return next(err);
-        res.render('contents/edit', {
+        return res.render('contents/edit', {
             title: '修改内容',
             content: content
         });

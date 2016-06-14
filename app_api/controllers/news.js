@@ -20,7 +20,7 @@ exports.index = function (req, res, next) {
         }
     }, function (err, data) {
         if (err) return next(err);
-        res.render('news', {
+        return res.render('news', {
             title: '新闻管理',
             news: data.news,
             pagination: {
@@ -35,7 +35,7 @@ exports.index = function (req, res, next) {
 
 
 exports.add = function (req, res, next) {
-    res.render('news/edit', {
+    return res.render('news/edit', {
         title: '添加新闻',
         singleNew: {enabled: true},
     });
@@ -44,7 +44,7 @@ exports.edit = function (req, res, next) {
     var id = req.query.id;
     New.findById(id).exec(function (err, singleNew) {
         if (err) return next(err);
-        res.render('news/edit', {
+        return res.render('news/edit', {
             title: '修改新闻',
             singleNew: singleNew,
         });

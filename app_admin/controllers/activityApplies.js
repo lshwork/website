@@ -27,7 +27,7 @@ exports.index=function(req,res,next){
         }
     }, function(err, data) {
         if (err) return next(err);
-        res.render('activityApplies/index', {
+        return res.render('activityApplies/index', {
             title: '报名管理',
             activityApplies: data.activityApplies,
             pagination: {
@@ -44,7 +44,7 @@ exports.edit = function(req, res, next) {
     var id = req.query.id;
     ActivityApply.findById(id, function (err, activityApply) {
         if (err) return next(err);
-            res.render('activityApplies/edit', {
+        return res.render('activityApplies/edit', {
                 title: '修改报名信息',
                 activityApply: activityApply
             });

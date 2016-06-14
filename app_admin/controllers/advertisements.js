@@ -21,7 +21,7 @@ exports.index = function (req, res, next) {
         }
     }, function (err, data) {
         if (err) return next(err);
-        res.render('advertisements/index', {
+        return res.render('advertisements/index', {
             title: '广告图片管理',
             advertisements: data.advertisements,
             pagination: {
@@ -35,7 +35,7 @@ exports.index = function (req, res, next) {
 };
 
 exports.add = function (req, res, next) {
-    res.render('advertisements/edit', {
+    return res.render('advertisements/edit', {
         title: '新增广告图',
     });
 };
@@ -43,7 +43,7 @@ exports.edit = function (req, res, next) {
     var id=req.query.id;
     Advertisement.findById(id,function(err,advertisement){
         if(err) next(err);
-        res.render('advertisements/edit', {
+        return res.render('advertisements/edit', {
             title: '修改广告图',
             advertisement:advertisement,
         });
